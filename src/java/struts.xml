@@ -1,0 +1,107 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.custom.i18n.resources" value="global" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.ui.theme" value="epbt2" />
+    <constant name="struts.ui.templateDir" value="template" />    
+    
+    <!-- Advanced Wildcards-->    
+    <constant name="struts.enable.SlashesInActionNames" value="true" />
+    <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+    
+    <constant name="struts.action.extension" value="," />
+    <constant name="struts.allowed.action.names" value="[a-zA-Z0-9._!/\-&#63;&#61;&#38;&#42;]*"/>
+    
+    <!--include file="ref.xml"/-->    
+    <include file="common.xml"/>  
+    <include file="pertanyaan.xml"/>
+    <include file="pemprosesan.xml"/>
+    <include file="selenggara.xml"/>
+    <include file="ansuran.xml"/>
+    <include file="report.xml"/>
+    <include file="dummy.xml"/>
+    <include file="laporan.xml"/>
+    <include file="image.xml"/>
+
+
+    <!-- Configuration for the default package. -->
+    <package name="default" namespace="/" extends="struts-default,json-default">
+        <interceptors>
+            <interceptor name="authentication"
+                         class="com.epbt2.interceptors.AuthenticationInterceptor">
+            </interceptor>
+            <interceptor-stack name="authStack">
+                <interceptor-ref name="authentication"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>        
+        <default-interceptor-ref name="authStack"></default-interceptor-ref>
+        <global-results>
+            <result name="error">/error.jsp</result>
+            <result name="login" type="redirect">logOutUser</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings> 
+        
+        <!-- LEFT MENU -->
+        <action name="menu" class="com.epbt2.common.MenuMTKNAccordionPreparer">
+            <result name="success">/inc/sidebar.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>        
+        <!-- BYE 13/06/2016 -->
+        <action name="menu2" class="com.epbt2.common.MenuMTKNAccordionPreparer">
+            <result name="success">/inc2/sidebar.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action> 
+        <!-- BYE 13/06/2016 -->
+        <!-- LEFT MENU -->
+        <!-- USER LOGIN INFO -->
+        <action name="info" class="com.epbt2.common.InfoAction">
+            <result name="success">/inc/top.jsp</result>
+        </action>
+        <!-- BYE 13/06/2016 -->
+        <action name="info2" class="com.epbt2.common.InfoAction">
+            <result name="success">/inc2/top.jsp</result>
+        </action>
+        <!-- BYE 13/06/2016 -->
+        <!-- USER LOGIN INFO -->
+        <!-- login action -->
+        <action name="Login" class="com.epbt2.common.LoginAction">
+            <interceptor-ref name="basicStack"/>
+            <result name="success" type="redirect">/common/welcome2</result>
+        </action>
+        <!-- logout action -->  
+        <action name="logOutUser" class="com.epbt2.common.LogoutAction">
+            <interceptor-ref name="basicStack"></interceptor-ref>
+            <result name="success">/Logout.jsp</result>  
+            <result name="login">/Logout.jsp</result>  
+        </action>  
+        <!-- logout action -->  
+        <!-- JSON -->
+        <action name="TempohJson" class="com.epbt2.mtkn.common.TempohJsonAction">
+            <result type="json"/>
+        </action>        
+        <!-- LOV AKAUN -->
+        <action name="Akaun" class="com.epbt2.mtkn.common.AkaunAction">
+            <result name="success">/mtknUmum/dialogAkaun.jsp</result>
+        </action>  
+        <action name="Jlkod" class="com.epbt2.mtkn.common.JalanAction">
+            <result name="success">/mtknUmum/dialogJalan.jsp</result>
+        </action>
+        <!-- LOV PEGAWAI -->
+        <action name="Pegawai" class="com.epbt2.mtkn.common.AnggotaMajlisAction">
+            <result name="success">/mtknUmum/dialogAnggotaMajlis.jsp</result>
+        </action>
+        
+        <action name="HarianItkod" class="com.epbt2.mtkn.common.TransTaksiranAction">
+            <result name="success">/mtknUmum/dialogTransTaksiran.jsp</result>
+        </action> 
+    </package>
+</struts>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE daogen-metadata>
+
+<daogen-metadata>
+   <version>2.4.1</version>
+   <timestamp>17.02.2015</timestamp>
+
+   <tableName>SPBT.FJALAN</tableName>
+   <className>FJalan</className>
+   <language>java</language>
+   <database>oracle</database>
+   <useCache>false</useCache>
+   <classPackage>com.epbt2.mtkn.common.dao</classPackage>
+   <columns>
+      <dbColumn PK="true" colType="String" colName="JLN_KWKOD" varName="JlnKwkod" 
+      automatic="false" valueSource="" indexed="true" colLength="255" orderLevel="1" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JLN_JLKOD" varName="JlnJlkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JLN_JNAMA" varName="JlnJnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JLN_POSKD" varName="JlnPoskd" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+   </columns>
+</daogen-metadata>

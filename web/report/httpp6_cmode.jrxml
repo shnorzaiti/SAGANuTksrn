@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="httpp6_cmode" language="groovy" pageWidth="590" pageHeight="840" columnWidth="550" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d9501038-441d-4d4e-bbaa-1e1fd494e4c0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="131"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\ireport\\mtkn\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  'T'||h.maj_mjkod||lpad(a.peg_akaun,7,'0')||lpad(a.peg_digit,2,'0') bkaun2,
+            'SALINAN' salinan, f.htx_nobil nobil2,
+            TO_CHAR(htx_tkhbl, 'dd/mm/yyyy') tkhbl2,
+            a.peg_akaun pegakaun2,
+            a.peg_adpg1 adpg12, d.jln_jnama adpg22, d.jln_poskd adpg32,
+            a.peg_nilth nilth2, c.kaw_kadar kadar2,
+            round(nvl(a.peg_nilth,0)*nvl(c.kaw_kadar,0)/100,2) tksir2,
+            f.htx_statf statf2, f.htx_tmpoh tmpoh2,
+
+	  case when (to_number(to_char(htx_tkhbl,'MM')) > 06) then
+            'SEPARUH TAHUN KEDUA'||'  '||to_number(to_char(htx_tkhbl,'YYYY'))
+            else
+            'SEPARUH TAHUN PERTAMA'||' '||to_number(to_char(htx_tkhbl,'YYYY'))
+            end tempoh,
+            'SEPARUH TAHUN' tempoh1,
+            case when  (to_number(to_char(htx_tkhbl,'MM')) > 06) then
+            'JUL - DIS'||'  '||to_number(to_char(htx_tkhbl,'YYYY'))
+            else
+            'JAN - JUN'||'  '||to_number(to_char(htx_tkhbl,'YYYY'))
+            end tempoh2,
+
+            i.pvd_pnama pnama2, i.pvd_almt1 adpk12,
+            i.pvd_almt2 adpk22, i.pvd_almt3 adpk32,
+            (select mnmsej||' '||mnmsj1||' '||mnmsj2 from  mtkn.msggpr) mesej
+
+from        mtkn.hlpgng a, mtkn.hlpmlk b, mtkn.hkawkd c, spbt.vjalan d,
+            mtkn.hjenpk e, mtkn.hlhtrx f, spbt.majlis h, spbt.vplngn i
+where   b.pmk_akaun = a.peg_akaun and a.peg_akaun = f.htx_akaun (+)
+and     a.peg_jlkod = d.jln_jlkod
+and     d.jln_kwkod = c.kaw_kwkod
+and     a.peg_akaun = i.pvd_akaun
+and     b.pmk_akaun = i.pvd_akaun
+and     b.pmk_plgid = i.pvd_plgid
+and     i.pvd_modin = 'T'
+and     a.peg_htkod = c.kaw_htkod
+and     a.peg_jpkod = e.jpk_jpkod and a.peg_jlkod = d.jln_jlkod
+and     e.jpk_itkod = '11010'
+and     a.peg_statf  <> 'H'
+and     a.peg_tkhpl = to_date($P{param1}, 'dd/mm/yyyy')
+order by a.peg_akaun]]>
+	</queryString>
+	<field name="BKAUN2" class="java.lang.String"/>
+	<field name="SALINAN" class="java.lang.String"/>
+	<field name="NOBIL2" class="java.lang.String"/>
+	<field name="TKHBL2" class="java.lang.String"/>
+	<field name="PEGAKAUN2" class="java.math.BigDecimal"/>
+	<field name="ADPG12" class="java.lang.String"/>
+	<field name="ADPG22" class="java.lang.String"/>
+	<field name="ADPG32" class="java.lang.String"/>
+	<field name="NILTH2" class="java.math.BigDecimal"/>
+	<field name="KADAR2" class="java.math.BigDecimal"/>
+	<field name="TKSIR2" class="java.math.BigDecimal"/>
+	<field name="STATF2" class="java.lang.String"/>
+	<field name="TMPOH2" class="java.sql.Timestamp"/>
+	<field name="TEMPOH" class="java.lang.String"/>
+	<field name="TEMPOH1" class="java.lang.String"/>
+	<field name="TEMPOH2" class="java.lang.String"/>
+	<field name="PNAMA2" class="java.lang.String"/>
+	<field name="ADPK12" class="java.lang.String"/>
+	<field name="ADPK22" class="java.lang.String"/>
+	<field name="ADPK32" class="java.lang.String"/>
+	<field name="MESEJ" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="800" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c221af2b-4de8-42ca-a2b0-756737ecc73b" x="410" y="0" width="80" height="20"/>
+				<box rightPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SALINAN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9947a3d6-bf22-4a39-9c7c-f58e299016f9" x="410" y="40" width="80" height="15"/>
+				<box rightPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOBIL2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9cae206e-6e30-473f-8668-add784de0e63" x="410" y="65" width="80" height="15"/>
+				<box rightPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BKAUN2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d217e63e-1dac-445d-8eb4-f75b331e2991" x="40" y="60" width="280" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PNAMA2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="00e874a5-81f4-4683-ba4c-d5580e3a88ae" x="40" y="75" width="280" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADPK12}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c833e54e-1343-4cf3-97aa-4f14032694a8" x="40" y="90" width="280" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADPK22}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c28688ee-961f-4c1d-adae-1e6bc32d31e9" x="40" y="105" width="280" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADPK32}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eaec7800-e429-4b1b-9640-e6dbfd142327" x="75" y="150" width="220" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADPG12}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c1556080-bc52-4b71-a21d-8988385b608e" x="75" y="165" width="220" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADPG22}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ce3b1e97-2c25-410b-9c67-a578a067e121" x="75" y="180" width="220" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADPG32}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="3a641dd6-0010-4a31-86b0-535929fba742" x="130" y="220" width="100" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NILTH2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="6da59fe8-3653-4f25-b7ca-c6947e84605b" x="130" y="235" width="100" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new DecimalFormat("0.00").format($F{KADAR2})+"%"]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="b61f0406-2b73-43bc-8b67-a778fa56d3a0" x="130" y="250" width="100" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TKSIR2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="18b38be6-b525-48a3-9cbf-9fc13f2443ba" x="120" y="320" width="100" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TMPOH2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="853f25fb-8e0a-4573-b82b-b11e7b24774c" x="0" y="370" width="190" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MESEJ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="de5f5d43-c5ee-44ad-a334-6bab73789249" x="50" y="480" width="220" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PNAMA2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1b75857e-eb2b-4f4f-b7b2-077536400e32" x="50" y="495" width="220" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADPG12}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e2a81dd4-c336-4c76-89a9-6af5af5233a3" x="50" y="510" width="220" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADPG22}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f49578f8-9666-4c31-8142-91717b460b89" x="50" y="525" width="220" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADPG32}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d9a9a4f1-f08a-4ae5-8a55-412c2f41829e" x="70" y="580" width="80" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BKAUN2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b64aa663-fc58-4219-a154-0d019ceb7f9e" x="70" y="595" width="80" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOBIL2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1ada11d0-c908-42b8-96de-f490cc6b9f71" x="70" y="610" width="80" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TKHBL2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b22d4aac-b21a-46df-b7c4-5141d74fa3f1" x="250" y="645" width="130" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[JUMLAH PERLU DIBAYAR :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="11dd8246-9dc7-4e76-baf9-2e74fa96a4df" x="250" y="605" width="130" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[JUMLAH DIBIL :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d53949be-bf27-4e35-a563-37f3e7395dec" x="250" y="330" width="130" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[JUMLAH PERLU DIBAYAR :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="edde166d-1639-4006-aeac-b42b1462050d" x="250" y="295" width="130" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[JUMLAH DIBIL :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="53715c3a-6e9e-422d-b23e-35ef17aaa9b0" x="410" y="90" width="80" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TKHBL2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="31b38237-9939-4039-ba3d-6273f6ff2d0f" x="120" y="280" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TEMPOH1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="068119e7-260c-47ef-885b-e33c35b0daf9" x="120" y="295" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TEMPOH2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c0ce7270-e3d8-40f9-9ac6-b9aaa7605035" x="110" y="0" width="160" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TEMPOH}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="5f7e1c3e-70ba-4c8b-903b-1aafaebe1953" x="283" y="205" width="567" height="30"/>
+				<subreportParameter name="param1"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "sr_httpp6.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

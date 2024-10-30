@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE daogen-metadata>
+
+<daogen-metadata>
+   <version>2.4.1</version>
+   <timestamp>07.08.2014</timestamp>
+
+   <tableName>MTKN.VTSTAT</tableName>
+   <className>VTstat</className>
+   <language>java</language>
+   <database>oracle</database>
+   <useCache>false</useCache>
+   <classPackage>com.epbt2.mtkn.ref.dao</classPackage>
+   <columns>
+      <dbColumn PK="true" colType="String" colName="PYT_STATF" varName="PYtstatf" 
+      automatic="false" valueSource="" indexed="true" colLength="255" orderLevel="1" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TGK_CT" varName="TGkct" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TGK_DENDA" varName="TGkdenda" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TGK_NOTISE" varName="TGknotise" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TGK_WRN" varName="TGkwrn" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TGK_NOD" varName="TGknod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="CTAKSIR" varName="CTaksir" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="DENDA" varName="Denda" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="NOTISE" varName="NOtise" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="WARAN" varName="WAran" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="NOD" varName="NOd" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="BYR_TGK_CT" varName="BYrtgkct" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="BYR_TGK_DENDA" varName="BYrtgkdenda" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="BYR_TGK_NOTISE" varName="BYrtgknotise" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="BYR_TGK_WRN" varName="BYrtgkwrn" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="BYR_TGK_NOD" varName="BYrtgknod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="BYR_CTAKSIR" varName="BYrctaksir" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="BYR_DENDA" varName="BYrdenda" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="BYR_NOTISE" varName="BYrnotise" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="BYR_WARAN" varName="BYrwaran" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="BYR_NOD" varName="Byrnod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+   </columns>
+</daogen-metadata>

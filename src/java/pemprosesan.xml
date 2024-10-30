@@ -1,0 +1,102 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="pemprosesan" namespace="/pemprosesan" extends="struts-default,json-default">   
+        <result-types>
+            <result-type name="tiles"
+                         class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>                    
+        <!-- INTERCEPTOR -->       
+        <interceptors>
+            <interceptor name="authentication"
+                         class="com.epbt2.interceptors.AuthenticationInterceptor">
+            </interceptor>
+            <interceptor-stack name="authStack">
+                <interceptor-ref name="authentication"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>            
+        </interceptors>         
+        <default-interceptor-ref name="authStack"></default-interceptor-ref>      
+        <!-- INTERCEPTOR -->
+        <global-results>
+            <result name="error">/error.jsp</result>
+            <result name="login" type="redirect">/logOutUser</result>
+        </global-results>
+    
+        <action name="*Link" class="com.epbt2.common.LinkAction">
+            <result name="success" type="tiles">${directory}.{1}.tiles</result>
+        </action>       
+        <!-- BYE 22/07/2016 -->  
+        <action name="*Link2" class="com.epbt2.common.LinkAction">
+            <result name="success" type="tiles">${directory}.{1}.tiles2</result>
+        </action>    
+        <!-- BYE 22/07/2016 --> 
+        <!-- <action name="akaunPemilik" class="com.epbt2.mtkn.pemprosesan.BilTaksiran">
+              <result name="success">/mtknPemprosesan/ListBilTaksiran.jsp</result>
+            <result name="success" type="tiles">hutangTerimaaan.tiles</result>          
+        </action> --> 
+        <!-- JSON -->
+        <action name="MaklJabtJson" class="com.epbt2.mtkn.common.MaklJabtJsonAction">
+            <result type="json"/>
+        </action>
+        <!-- JSON -->
+         
+        <!-- DIALOG -->
+        <action name="Jabatan" class="com.epbt2.mtkn.common.HLjabtAction">
+            <result name="success">/mtknUmum/dialogJabatan.jsp</result>
+            <!--<result name="input">/mtknPemprosesan/BilCarBtuKdr.jsp</result>-->
+        </action> 
+        <!-- DIALOG -->
+        <action name="*DendaNotisWaran" class="com.epbt2.mtkn.pemprosesan.DendaNotisWaranAction" method="{1}">
+            <result name="success">/mtknPemprosesan/dendaLewatNotis.jsp</result>
+            <result name="input">/mtknPemprosesan/dendaLewatNotis.jsp</result>
+        </action>
+        <action name="*BilTksir" class="com.epbt2.mtkn.pemprosesan.prosesBilAction" method="{1}">
+            <result name="success">/mtknPemprosesan/BilTksir.jsp</result>
+            <result name="input">/mtknPemprosesan/BilTksir.jsp</result> 
+        </action>        
+        <action name="*BilCBK" class="com.epbt2.mtkn.pemprosesan.BIlcbkAction" method="{1}">
+            <result name="success">/mtknPemprosesan/BilCarBtuKdr.jsp</result>
+            <result name="input">/mtknPemprosesan/BilCarBtuKdr.jsp</result> 
+        </action>        
+        <action name="*Initial" class="com.epbt2.mtkn.pemprosesan.InitialStghThnAction" method="{1}">
+            <result name="success">/mtknPemprosesan/InitialStghThn.jsp</result>
+            <result name="input">/mtknPemprosesan/InitialStghThn.jsp</result> 
+        </action>
+        <action name="*ProsesBil" class="com.epbt2.mtkn.pemprosesan.prosesBilAction" method="{1}">
+            <result name="success">/mtknPemprosesan/BilTksir.jsp</result>
+            <result name="input">/mtknPemprosesan/BilTksir.jsp</result> 
+        </action>
+        <action name="*BilPulang" class="com.epbt2.mtkn.pemprosesan.BilPulangAction" method="{1}">
+            <result name="success">/mtknPemprosesan/BilPulang.jsp</result>
+            <result name="input">/mtknPemprosesan/BilPulang.jsp</result> 
+        </action>
+        <action name="*processFlatfile" class="com.epbt2.mtkn.pemprosesan.FlatFileAction" method="{1}">
+            <result name="success">/mtknPemprosesan/PnydianFltFile.jsp</result>
+        </action>
+        <action name="*FlatFileE" class="com.epbt2.mtkn.pemprosesan.FlatFileNotisEAction" method="{1}">
+            <result name="success">/mtknPemprosesan/PnydianFltFileE.jsp</result>
+        </action>
+       
+        <action name="*ProsKaveat" class="com.epbt2.mtkn.pemprosesan.ProsKaveatAction" method="{1}">
+            <result name="success">/mtknPemprosesan/ProsKaveat.jsp</result>
+            <result name="input">/mtknPemprosesan/ProsKaveat.jsp</result> 
+        </action>
+        
+        <action name="*SelenggaraKaveat" class="com.epbt2.mtkn.pemprosesan.SelengaraKaveatAction" method="{1}">
+            <result name="success">/mtknPemprosesan/SelengaraKaveat.jsp</result>
+            <result name="input">/mtknPemprosesan/SelengaraKaveat.jsp</result> 
+        </action>
+       
+                
+                
+       
+        <!--
+        <action name="BilCarBtuKdr" class="com.epbt2.mtkn.pemprosesan.HLjabtAction">
+            <result name="success">/mtknPemprosesan/BilCarBtuKdr.jsp</result>
+        </action>-->
+    </package>
+</struts>
+

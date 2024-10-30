@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE daogen-metadata>
+
+<daogen-metadata>
+   <version>2.4.1</version>
+   <timestamp>25.04.2014</timestamp>
+
+   <tableName>HLPGNG</tableName>
+   <className>HLpgng</className>
+   <language>java</language>
+   <database>oracle</database>
+   <useCache>false</useCache>
+   <classPackage>com.epbt2.mtkn.common.dao</classPackage>
+   <columns>
+      <dbColumn PK="true" colType="String" colName="PEG_AKAUN" varName="PEgakaun" 
+      automatic="false" valueSource="" indexed="true" colLength="255" orderLevel="1" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_DIGIT" varName="PEgdigit" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_JLKOD" varName="PEgjlkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_THKOD" varName="PEgthkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_HTKOD" varName="PEghtkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_JPKOD" varName="PEgjpkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_BGKOD" varName="PEgbgkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_STKOD" varName="PEgstkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_NOLOT" varName="PEgnolot" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_BLLOT" varName="PEgbllot" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_NOMPT" varName="PEgnompt" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_PELAN" varName="PEgpelan" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_ADPG1" varName="PEgadpg1" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_TKHOC" varName="PEgtkhoc" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_TKHTK" varName="PEgtkhtk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_TKHPL" varName="PEgtkhpl" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_NILTH" varName="PEgnilth" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_BILPK" varName="PEgbilpk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_LSBGN" varName="PEglsbgn" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_LSTNH" varName="PEglstnh" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_RJFIL" varName="PEgrjfil" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_RJMMK" varName="PEgrjmmk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_STATF" varName="PEgstatf" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_OLDAC" varName="PEgoldac" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_STATK" varName="PEgstatk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_STCBK" varName="PEgstcbk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_ONAMA" varName="PEgonama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_LSANS" varName="PEglsans" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_ADPG2" varName="PEgadpg2" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_AKLSN" varName="PEgaklsn" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_AKSWN" varName="PEgakswn" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_AKPBG" varName="PEgakpbg" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+   </columns>
+</daogen-metadata>

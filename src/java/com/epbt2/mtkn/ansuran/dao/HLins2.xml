@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE daogen-metadata>
+
+<daogen-metadata>
+   <version>2.4.1</version>
+   <timestamp>16.06.2014</timestamp>
+
+   <tableName>MTKN.HLINS2</tableName>
+   <className>HLins2</className>
+   <language>java</language>
+   <database>oracle</database>
+   <useCache>false</useCache>
+   <classPackage>com.epbt2.mtkn.ref.dao</classPackage>
+   <columns>
+      <dbColumn PK="true" colType="String" colName="IN2_AKAUN" varName="IN2akaun" 
+      automatic="false" valueSource="" indexed="true" colLength="255" orderLevel="1" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="IN2_TEMPOH" varName="IN2tmpoh" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="IN2_AMAN1" varName="IN2aman1" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="IN2_AMAN2" varName="IN2aman2" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="IN2_AMAN3" varName="IN2aman3" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="IN2_AMAN4" varName="IN2aman4" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="IN2_AMAN5" varName="IN2aman5" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="IN2_AMAN6" varName="IN2aman6" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="IN2_AMAN7" varName="IN2aman7" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="IN2_AMAN8" varName="IN2aman8" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="IN2_STATF" varName="IN2statf" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+   </columns>
+</daogen-metadata>

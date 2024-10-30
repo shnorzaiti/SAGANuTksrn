@@ -1,0 +1,62 @@
+/* line 83, sass/_extends.scss */
+.panel-footer.revenue-foot ul li a:hover i, .panel-footer.revenue-foot ul li.active a i {
+  color: #ff6b6b;
+  display: block;
+  font-size: 16px;
+}
+
+/* line 3, sass/panels.scss */
+.panel-footer.revenue-foot {
+  background-color: #e6e7ec;
+  border-radius: 0 0 4px 4px;
+  border: none;
+  padding: 0;
+  width: 100%;
+  display: inline-block;
+}
+/* line 11, sass/panels.scss */
+.panel-footer.revenue-foot ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: inline-flex;
+}
+/* line 16, sass/panels.scss */
+.panel-footer.revenue-foot ul li {
+  float: left;
+  width: 33.33%;
+}
+/* line 19, sass/panels.scss */
+.panel-footer.revenue-foot ul li a {
+  display: inline-block;
+  width: 100%;
+  padding: 14px 15px;
+  text-align: center;
+  border-right: 1px solid #d5d8df;
+  color: #797979;
+}
+/* line 26, sass/panels.scss */
+.panel-footer.revenue-foot ul li a:hover {
+  background: #fff;
+  position: relative;
+}
+/* line 33, sass/panels.scss */
+.panel-footer.revenue-foot ul li a i {
+  color: #c9cdd7;
+  display: block;
+  font-size: 16px;
+}
+/* line 39, sass/panels.scss */
+.panel-footer.revenue-foot ul li.first a:hover {
+  border-radius: 0 0 0 4px;
+}
+/* line 43, sass/panels.scss */
+.panel-footer.revenue-foot ul li.last a:hover {
+  border-radius: 0 0 4px 0;
+  border-right: none;
+}
+/* line 48, sass/panels.scss */
+.panel-footer.revenue-foot ul li.active a {
+  background: #fff;
+  position: relative;
+}

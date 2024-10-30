@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE daogen-metadata>
+
+<daogen-metadata>
+   <version>2.4.1</version>
+   <timestamp>21.09.2016</timestamp>
+
+   <tableName>hvctcr</tableName>
+   <className>HVctcr</className>
+   <language>java</language>
+   <database>oracle</database>
+   <useCache>false</useCache>
+   <classPackage>com.epbt2.mtkn.tanya.dao</classPackage>
+   <columns>
+      <dbColumn PK="true" colType="String" colName="PEG_AKAUN" varName="pegAkaun" 
+      automatic="false" valueSource="" indexed="true" colLength="255" orderLevel="1" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_DIGIT" varName="pegDigit" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_JLKOD" varName="pegJlkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_THKOD" varName="pegThkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_HTKOD" varName="pegHtkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_JPKOD" varName="pegJpkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_BGKOD" varName="pegBgkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_STKOD" varName="pegStkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_NOLOT" varName="pegNolot" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_BLLOT" varName="pegBllot" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_NOMPT" varName="pegNompt" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_PELAN" varName="pegPelan" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_ADPG1" varName="pegAdpg1" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_TKHOC" varName="pegTkhoc" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_TKHTK" varName="pegTkhtk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_TKHPL" varName="pegTkhpl" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_NILTH" varName="pegNilth" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_BILPK" varName="pegBilpk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_LSBGN" varName="pegLsbgn" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_LSTNH" varName="pegLstnh" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_RJFIL" varName="pegRjfil" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_RJMMK" varName="pegRjmmk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_STATF" varName="pegStatf" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_OLDAC" varName="pegOldac" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_STATK" varName="pegStatk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_STCBK" varName="pegStcbk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_ONAMA" varName="pegOnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_LSANS" varName="pegLsans" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_ADPG2" varName="pegAdpg2" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_AKLSN" varName="pegAklsn" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_AKSWN" varName="pegAkswn" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_AKPBG" varName="pegAkpbg" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_SMPAH" varName="pegSmpah" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_CODEX" varName="pegCodex" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_CODEY" varName="pegCodey" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_DISKN" varName="pegDiskn" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_AKAUN" varName="pmkAkaun" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_PLGID" varName="pmkPlgid" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_NMBIL" varName="pmkNmbil" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_BLPMK" varName="pmkBlpmk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_HKMLK" varName="pmkHkmlk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_KDANS" varName="pmkKdans" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_KDEXP" varName="pmkKdexp" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_PRTUS" varName="pmkPrtus" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_RUJMJ" varName="pmkRujmj" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_JILID" varName="pmkJilid" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_STATF" varName="pmkStatf" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_STANG" varName="pmkStang" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_KPPEK" varName="pmkKppek" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_AMTID" varName="pmkAmtid" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_ONAMA" varName="pmkOnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JLN_KWKOD" varName="jlnKwkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JLN_KNAMA" varName="jlnKnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JLN_JLKOD" varName="jlnJlkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JLN_JNAMA" varName="jlnJnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JLN_POSKD" varName="jlnPoskd" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JLN_NEGRI" varName="jlnNegri" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JLN_PSKOD" varName="jlnPskod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="KAW_KWKOD" varName="kawKwkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="KAW_HTKOD" varName="kawHtkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="KAW_KADAR" varName="kawKadar" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JPK_JPKOD" varName="jpkJpkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JPK_ITKOD" varName="jpkItkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JPK_JNAMA" varName="jpkJnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="JPK_STCBK" varName="jpkStcbk" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_WSTATF" varName="pegWstatf" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_WSTATF" varName="pmkWstatf" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_WKDANS" varName="pmkWkdans" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PMK_WKDEXP" varName="pmkWkdexp" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_TKSIR" varName="pegTksir" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TKN_TKSR1" varName="tknTksr1" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TKN_TKSR2" varName="tknTksr2" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TKN_ADPG1" varName="tknAdpg1" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TKN_ADPG2" varName="tknAdpg2" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TKN_ADPG3" varName="tknAdpg3" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TKN_ADPG4" varName="tknAdpg4" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TKN_NOAKN" varName="tknNoakn" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TKN_BCODE" varName="tknBcode" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_PLGID" varName="pvdPlgid" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_JENPG" varName="pvdJenpg" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_AMTID" varName="pvdAmtid" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_MODIN" varName="pvdModin" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_AKAUN" varName="pvdAkaun" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_PNAMA" varName="pvdPnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_ALMT1" varName="pvdAlmt1" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_ALMT2" varName="pvdAlmt2" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_ALMT3" varName="pvdAlmt3" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_ALMT4" varName="pvdAlmt4" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_ALMT5" varName="pvdAlmt5" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_OVSEA" varName="pvdOvsea" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_EMAIL" varName="pvdEmail" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_NOTEL" varName="pvdNotel" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_NOMHP" varName="pvdNomhp" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_NOFAX" varName="pvdNofax" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_WBNGSA" varName="pvdWbngsa" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_WKBGSA" varName="pvdWkbgsa" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PVD_ALMT0" varName="pvdAlmt0" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="HRT_HNAMA" varName="hrtHnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="TNH_TNAMA" varName="tnhTnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="BGN_BNAMA" varName="bgnBnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="STB_SNAMA" varName="stbSnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="KWS_KWKOD" varName="kwsKwkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="KWS_KNAMA" varName="kwsKnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="KWS_MKKOD" varName="kwsMkkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="MKM_MKKOD" varName="mkmMkkod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="MKM_MNAMA" varName="mkmMnama" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PEG_HTANG" varName="pegHtang" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_STATS" varName="pytStats" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_TGKCT" varName="pytTgkct" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_TGKDD" varName="pytTgkdd" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_TGKNE" varName="pytTgkne" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_TGKWF" varName="pytTgkwf" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_TGKND" varName="pytTgknd" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_CTSIR" varName="pytCtsir" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_DENDA" varName="pytDenda" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_NOTIS" varName="pytNotis" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_WARAN" varName="pytWaran" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_AMNOD" varName="pytAmnod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_BYTCT" varName="pytBytct" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_BYTDD" varName="pytBytdd" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_BYTNE" varName="pytBytne" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_BYTWF" varName="pytBytwf" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_BYTOD" varName="pytBytod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_BYSCT" varName="pytBysct" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_BYSDD" varName="pytBysdd" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_BYSNE" varName="pytBysne" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_BYSWF" varName="pytByswf" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_BYSOD" varName="pytBysod" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="PYT_TMPOH" varName="pytTmpoh" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+   </columns>
+</daogen-metadata>

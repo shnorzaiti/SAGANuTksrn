@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="htts35_sub1" language="groovy" pageWidth="220" pageHeight="595" orientation="Landscape" columnWidth="220" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1fc2dbda-6110-428d-8766-8dc2bef4b3d1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\ireport\\mtkn\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="akaun" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="jumlh" class="java.math.BigDecimal"/>
+	<parameter name="tkhnt" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select pyt_tkhbl tkhby, pyt_nobil nobyr,
+       sum(decode(substr(pyt_kdrjk,1,4),2103,pyt_amaun,0)) byrsms,
+       sum(decode(substr(pyt_kdrjk,1,4),2203,pyt_amaun,0)) byrtgk,
+       sum(decode(substr(pyt_kdrjk,1,4),2103,pyt_amaun,0))+
+       sum(decode(substr(pyt_kdrjk,1,4),2203,pyt_amaun,0)) jmbyr
+from mtkn.hlpnyt
+where pyt_tkhbl >= $P{tkhnt}
+and pyt_akaun = $P{akaun}
+and pyt_statf = 'R'
+and substr(pyt_kdrjk,1,5) in ('21030','22030')
+group by pyt_akaun, pyt_tkhbl, pyt_nobil]]>
+	</queryString>
+	<field name="TKHBY" class="java.sql.Timestamp"/>
+	<field name="NOBYR" class="java.lang.String"/>
+	<field name="BYRSMS" class="java.math.BigDecimal"/>
+	<field name="BYRTGK" class="java.math.BigDecimal"/>
+	<field name="JMBYR" class="java.math.BigDecimal"/>
+	<variable name="byrtgk" class="java.math.BigDecimal" resetType="None">
+		<variableExpression><![CDATA[$F{BYRTGK}]]></variableExpression>
+	</variable>
+	<variable name="byrsms" class="java.math.BigDecimal" resetType="None">
+		<variableExpression><![CDATA[$F{BYRSMS}]]></variableExpression>
+	</variable>
+	<variable name="jmbyr" class="java.math.BigDecimal" resetType="None">
+		<variableExpression><![CDATA[$F{JMBYR}]]></variableExpression>
+	</variable>
+	<variable name="jmbak" class="java.math.BigDecimal" resetType="None">
+		<variableExpression><![CDATA[($P{jumlh}-$V{jmbyr})]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement uuid="ba06b644-a198-416f-9e87-29132c4fc3cb" x="1" y="0" width="65" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOBYR}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement uuid="3918dc50-b822-424a-a582-312b5c6fed0a" x="1" y="14" width="65" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TKHBY}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(-#,##0.00)" isBlankWhenNull="true">
+				<reportElement uuid="5cef5e6b-92d0-4a1c-af10-3ccfb09814dc" x="70" y="0" width="70" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BYRTGK}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(-#,##0.00)" isBlankWhenNull="true">
+				<reportElement uuid="77775b1a-97c4-45d5-88f3-c186d45a6715" x="70" y="14" width="70" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BYRSMS}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(-#,##0.00)" isBlankWhenNull="true">
+				<reportElement uuid="85369a1f-e54c-4d2b-9628-7f3cc826dae1" x="144" y="0" width="70" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JMBYR}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(-#,##0.00)" isBlankWhenNull="true">
+				<reportElement uuid="2f11ad71-053d-41aa-94b9-ec9b015eadf6" x="144" y="14" width="70" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{jmbak}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

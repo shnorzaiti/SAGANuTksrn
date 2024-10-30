@@ -1,0 +1,55 @@
+@import "colors";
+@import "extends";
+/*------------------------------------*\
+    #FORM
+\*------------------------------------*/
+.req {
+    color:red;
+}
+.form-horizontal.style-form .form-group {
+	border-bottom: 1px solid $color_porcelain_approx;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+}
+
+label {
+	font-weight: 400;
+        text-transform: capitalize;
+}
+.round-form {
+	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+	border-radius: 500px;
+}
+@media(min-width: 768px) {
+	.form-horizontal .control-label {
+		text-align: left;
+	}
+}
+.form-login {
+	max-width: 330px;
+	margin: 200px auto 0;
+	background: $white;
+	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	opacity: 1;
+	h2.form-login-heading {
+		margin: 0;
+		padding: 25px 20px;
+		text-align: center;
+		background: #59ABE3;
+		//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+		border-radius: 5px 5px 0 0;
+		color: $white;
+		font-size: 20px;
+		text-transform: uppercase;
+		font-weight: 300;
+	}
+}
+.form-panel {
+	background: $white;
+	margin: 10px;
+	padding: 10px;
+	//Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 3px 2px $color_cadet_blue_approx;
+	text-align: left;
+}

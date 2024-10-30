@@ -1,0 +1,90 @@
+@import "colors";
+//@extend-elements
+//original selectors
+//.btn-theme:hover, .btn-theme:focus, .btn-theme:active, .btn-theme.active, .open .dropdown-toggle.btn-theme
+%extend_1 {
+	color: $white;
+	background-color: $color_puerto_rico_approx;
+	border-color: $color_puerto_rico_approx;
+}
+
+//original selectors
+//.btn-theme02:hover, .btn-theme02:focus, .btn-theme02:active, .btn-theme02.active, .open .dropdown-toggle.btn-theme02
+%extend_2 {
+	color: $white;
+	background-color: $main_brand_bg;
+	border-color: $main_brand_bg;
+}
+
+//original selectors
+//.btn-theme03:hover, .btn-theme03:focus, .btn-theme03:active, .btn-theme03.active, .open .dropdown-toggle.btn-theme03
+%extend_3 {
+	color: $white;
+	background-color: $color_keppel_approx;
+	border-color: $color_keppel_approx;
+}
+
+//original selectors
+//.btn-theme04:hover, .btn-theme04:focus, .btn-theme04:active, .btn-theme04.active, .open .dropdown-toggle.btn-theme04
+%extend_4 {
+	color: $white;
+	background-color: $color_cerise_red_approx;
+	border-color: $color_cerise_red_approx;
+        
+}
+
+//original selectors
+//ul.sidebar-menu li a.active, ul.sidebar-menu li a:active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus
+%extend_5 {
+	background: transparent;
+	color: $main_brand_bg !important;
+        
+        
+	display: block;
+	//Instead of the line below you could use @includetransition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 0.3s ease;
+}
+
+//original selectors
+//ul.top-menu > li > a:hover, ul.top-menu > li > a:focus
+%extend_6 {
+	border: 1px solid $main_brand_bg !important;
+	background-color: $main_brand_bg !important;
+	border-color: $main_brand_bg !important;
+	text-decoration: none;
+	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+	border-radius: 4px;
+	color: $white !important;
+}
+
+//original selectors
+//.dropdown-menu.extended.logout > li:last-child > a, .dropdown-menu.extended.logout > li:last-child > a:hover
+%extend_7 {
+	color: $white;
+	border-bottom: none !important;
+	text-transform: uppercase;
+}
+
+//original selectors
+//.btn-facebook:hover, .btn-facebook:focus, .btn-facebook:active, .btn-facebook.active, .open .dropdown-toggle.btn-facebook
+%extend_8 {
+	color: $white;
+	background-color: $color_mariner_approx;
+	border-color: $color_mariner_approx;
+}
+
+//original selectors
+//.btn-twitter:hover, .btn-twitter:focus, .btn-twitter:active, .btn-twitter.active, .open .dropdown-toggle.btn-twitter
+%extend_9 {
+	color: $white;
+	background-color: $color_scooter_approx;
+	border-color: $color_scooter_approx;
+}
+
+//original selectors
+//.panel-footer.revenue-foot ul li a:hover i, .panel-footer.revenue-foot ul li.active a i
+%extend_10 {
+	color: $color_bittersweet_approx;
+	display: block;
+	font-size: 16px;
+}

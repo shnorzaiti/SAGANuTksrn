@@ -1,0 +1,158 @@
+@import "colors";
+@import "fonts";
+@import "extends";
+@import "main";
+@import "dashboard";
+@import "header";
+@import "sidebar";
+@import "footer";
+@import "helpers";
+@import "forms";
+@import "panels";
+@import "badges";
+@import "dropdowns";
+
+// @media screen and(-webkit-min-device-pixel-ratio:0) {
+// 	0 {
+// 		.: .;
+// 		: ;
+// 	}
+// 	1 {
+// 		.: .;
+// 		: ;
+// 	}
+// }
+// ; {
+// }
+ul.top-menu > li > a {
+  color: #424a5d;
+  font-size: 16px;
+  border-radius: 4px;
+  //border: 1px solid #424a5d !important;
+  padding: 2px 6px;
+  margin-right: 15px;
+  background:transparent !important;
+  cursor:pointer;
+}
+.content-panel {
+	background: transparent;
+	//Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 3px 2px $color_cadet_blue_approx;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	h4 {
+		margin-left: 10px;
+	}
+}
+
+#focusedInput {
+	border: 1px solid $color_mandy_approx;
+	//Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: none;
+}
+
+
+
+
+.login-wrap {
+	padding: 20px;
+	.registration {
+		text-align: center;
+	}
+}
+.login-social-link {
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+#sortable {
+	list-style-type: none;
+	margin: 0 0 20px 0;
+	padding: 0;
+	width: 100%;
+	li {
+        	padding-left: 3em;
+		font-size: 12px;
+		i {
+			position: absolute;
+			left: 6px;
+			padding: 4px 10px 0;
+			cursor: pointer;
+		}
+		input[type=checkbox] {
+			margin-top: 0;
+		}
+	}
+}
+.ui-sortable {
+	li {
+		&.list-primary {
+			border-left: 3px solid #41CAC0;
+		}
+		&.list-success {
+			border-left: 3px solid #78CD51;
+		}
+		&.list-danger {
+			border-left: 3px solid #FF6C60;
+		}
+		&.list-warning {
+			border-left: 3px solid #F1C500;
+		}
+		&.list-info {
+			border-left: 3px solid #58C9F3;
+		}
+		&.list-inverse {
+			border-left: 3px solid #BEC3C7;
+		}
+	}
+	> li {
+		padding: 15px 0 15px 35px !important;
+		position: relative;
+		background: $color_black_haze_approx;
+		margin-bottom: 2px;
+		border-bottom: none !important;
+	}
+}
+.site-footer {
+	background: $color_turquoise_blue_approx;
+	color: $white;
+	padding: 10px 0;
+}
+.go-top {
+	margin-right: 1%;
+	float: right;
+	background: $white_50;
+	width: 20px;
+	height: 20px;
+	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+	border-radius: 50%;
+	i {
+		color: #2A3542;
+	}
+}
+.site-min-height {
+	min-height: 900px;
+}
+
+.accordion-heading .accordion-toggle {
+	display: block;
+	cursor: pointer;
+	border-top: 1px solid #F5F5F5;
+	padding: 5px 0;
+	line-height: 28.75px;
+	text-transform: uppercase;
+	color: $color_rangoon_green_approx;
+	background-color: $white;
+	outline: none !important;
+	text-decoration: none;
+}
+
+.full-width .dropdown-menu.extended.logout > li > a:hover {
+	background: none !important;
+	color: $color_viking_approx !important;
+}
+
+.nav-tabs > li a{
+    font-size: 14px;
+}

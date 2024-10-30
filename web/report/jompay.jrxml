@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jompay" pageWidth="156" pageHeight="33" whenNoDataType="AllSectionsNoDetail" columnWidth="156" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="344820dd-7854-42f8-862d-8d50a7b0685f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select fim_logom jompay from spbt.fimage
+where fim_dftar = '30'
+and spbt.epbt.get_para_value('MTKN',71) = 'Y']]>
+	</queryString>
+	<field name="JOMPAY" class="java.io.InputStream"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="156" height="33" uuid="5cc072a2-a352-4a36-a366-39d17f8e60a0"/>
+				<imageExpression><![CDATA[$F{JOMPAY}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

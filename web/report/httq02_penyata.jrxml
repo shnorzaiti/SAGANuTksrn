@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="httq02_penyata" language="groovy" pageWidth="595" pageHeight="840" columnWidth="560" leftMargin="15" rightMargin="20" topMargin="0" bottomMargin="0" uuid="7cc86c58-99f4-4719-9b97-d1eb77740727">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PARAM1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PARAM2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  pyt_akaun akaun2, pyt_tkhbl tkhbl,
+        pyt_nobil nobil, pyt_keter inama,
+        decode(substr(pyt_kdrjk,1,1),'1',pyt_amaun,null) debit,
+        decode(substr(pyt_kdrjk,1,1),'2',pyt_amaun,null) credt,
+        pyt_amaun amaun
+ from   mtkn.hvpnyt
+ where  pyt_akaun = $P{PARAM1} and
+        ((pyt_stats = $P{PARAM2}) or
+         (pyt_statf <> 'T' and $P{PARAM2} = '99'))
+ order by   pyt_tkhbl, substr(pyt_kdrjk,1,1),
+            substr(pyt_kdrjk,2,1) desc,
+            substr(pyt_kdrjk,3,3)]]>
+	</queryString>
+	<field name="AKAUN2" class="java.math.BigDecimal"/>
+	<field name="TKHBL" class="java.sql.Timestamp"/>
+	<field name="NOBIL" class="java.lang.String"/>
+	<field name="INAMA" class="java.lang.String"/>
+	<field name="DEBIT" class="java.math.BigDecimal"/>
+	<field name="CREDT" class="java.math.BigDecimal"/>
+	<field name="AMAUN" class="java.math.BigDecimal"/>
+	<variable name="PREV_BAKI" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[($V{BAKI}==null?0:$V{BAKI})]]></variableExpression>
+		<initialValueExpression><![CDATA[new BigDecimal(0)]]></initialValueExpression>
+	</variable>
+	<variable name="BAKI" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[(($F{DEBIT}==null?0:$F{DEBIT})-($F{CREDT}==null?0:$F{CREDT}))]]></variableExpression>
+	</variable>
+	<variable name="LUMPSUM_BAKI" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[(($F{DEBIT}==null?0:$F{DEBIT})-($F{CREDT}==null?0:$F{CREDT}))]]></variableExpression>
+		<initialValueExpression><![CDATA[new BigDecimal(0)]]></initialValueExpression>
+	</variable>
+	<variable name="LUMPSUM_PREV_BAKI" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$V{LUMPSUM_BAKI}]]></variableExpression>
+		<initialValueExpression><![CDATA[new BigDecimal(0)]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0caec6cd-f5d8-48b2-9d13-4a848254695b" x="0" y="0" width="80" height="20"/>
+				<box leftPadding="5">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[TARIKH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d1406f72-ac94-46a7-9725-cb39038a9123" x="80" y="0" width="80" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[BIL / RESIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="11850a48-dc90-41a5-b738-f3693a59803a" x="160" y="0" width="175" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[KETERANGAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="17af7bca-8554-4d9b-aef3-d438515e4430" x="335" y="0" width="70" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[AMAUN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ed3eed46-d9c7-408c-8ca6-09ab4e57d971" x="405" y="0" width="70" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[BAYARAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d1b65ebe-a9d5-47ae-a8bb-c8ffd5e96fb3" x="475" y="0" width="80" height="20"/>
+				<box rightPadding="5">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[BAKI AKHIR]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="ebba734b-174b-427d-8ed0-0592b9b6993f" x="0" y="0" width="80" height="14"/>
+				<box leftPadding="10"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TKHBL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2e7fc141-3ff9-489b-9bc8-c0615050b417" x="80" y="0" width="80" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOBIL} == null ? "" : $F{NOBIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="832d60d5-3627-40a2-acd5-c3068fbeb8bd" x="160" y="0" width="175" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INAMA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+				<reportElement uuid="573b50f1-bc68-4510-8841-a69458a0a803" x="335" y="0" width="70" height="14"/>
+				<box rightPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEBIT} == null ? "-" : $F{DEBIT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+				<reportElement uuid="5e5d78ee-d039-414f-b4af-24b464166963" x="405" y="0" width="70" height="14"/>
+				<box rightPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CREDT} == null ? "-" : $F{CREDT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+				<reportElement uuid="6eafbc5f-8196-4f6c-8348-c87a8ac4a71b" x="475" y="0" width="80" height="14"/>
+				<box rightPadding="10"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{LUMPSUM_PREV_BAKI} == null ? "-" : $V{LUMPSUM_PREV_BAKI}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="htss26" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ae9f13e9-e8e5-4e1c-826f-479fb8d13bf1">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select '1' bila, 'T-000000001-01' kodtta, 'Wong Gee Mooi' nmbilaa, '25.65' cukaismaa, '0.00' dendasmaa, '0.00' notissmaa, '0.00' waransmaa, '0.00' lebihanaa, '25.65' sjumlahaa, '0.00' cukaitkaa, '0.00' dendatkaa, '0.00' notistkaa, '0.00' warantkaa, '25.65' cukaismap, '0.00' dendasmap, '0.00' notissmap, '0.00' waransmap, '0.00' lebihanap, '25.65' sjumlahap, '0.00' cukaitkap, '0.00' dendatkap, '0.00' notistkap, '0.00' warantkap, '25.65' cukaismar, '0.00' dendasmar, '0.00' notissmar, '0.00' waransmar, '0.00' lebihanar, '25.65' sjumlahar, '0.00' cukaitkar, '0.00' dendatkar, '0.00' notistkar, '0.00' warantkar, spbt.epbt.get_para_value('MTKN','1')mnama
+
+from dual]]>
+	</queryString>
+	<field name="BILA" class="java.lang.String"/>
+	<field name="KODTTA" class="java.lang.String"/>
+	<field name="NMBILAA" class="java.lang.String"/>
+	<field name="CUKAISMAA" class="java.lang.String"/>
+	<field name="DENDASMAA" class="java.lang.String"/>
+	<field name="NOTISSMAA" class="java.lang.String"/>
+	<field name="WARANSMAA" class="java.lang.String"/>
+	<field name="LEBIHANAA" class="java.lang.String"/>
+	<field name="SJUMLAHAA" class="java.lang.String"/>
+	<field name="CUKAITKAA" class="java.lang.String"/>
+	<field name="DENDATKAA" class="java.lang.String"/>
+	<field name="NOTISTKAA" class="java.lang.String"/>
+	<field name="WARANTKAA" class="java.lang.String"/>
+	<field name="CUKAISMAP" class="java.lang.String"/>
+	<field name="DENDASMAP" class="java.lang.String"/>
+	<field name="NOTISSMAP" class="java.lang.String"/>
+	<field name="WARANSMAP" class="java.lang.String"/>
+	<field name="LEBIHANAP" class="java.lang.String"/>
+	<field name="SJUMLAHAP" class="java.lang.String"/>
+	<field name="CUKAITKAP" class="java.lang.String"/>
+	<field name="DENDATKAP" class="java.lang.String"/>
+	<field name="NOTISTKAP" class="java.lang.String"/>
+	<field name="WARANTKAP" class="java.lang.String"/>
+	<field name="CUKAISMAR" class="java.lang.String"/>
+	<field name="DENDASMAR" class="java.lang.String"/>
+	<field name="NOTISSMAR" class="java.lang.String"/>
+	<field name="WARANSMAR" class="java.lang.String"/>
+	<field name="LEBIHANAR" class="java.lang.String"/>
+	<field name="SJUMLAHAR" class="java.lang.String"/>
+	<field name="CUKAITKAR" class="java.lang.String"/>
+	<field name="DENDATKAR" class="java.lang.String"/>
+	<field name="NOTISTKAR" class="java.lang.String"/>
+	<field name="WARANTKAR" class="java.lang.String"/>
+	<field name="MNAMA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="212" y="48" width="136" height="20" uuid="07cae48f-e893-4115-a84c-2dfb54ff03a0"/>
+				<text><![CDATA[Maklumat Hutang - Pemilik]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="47" width="48" height="20" uuid="ddf0e494-baf2-4030-bb2b-7ea5acad6d15"/>
+				<text><![CDATA[HTTS26]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="59" width="34" height="20" uuid="eea9bf14-0056-4cc4-af39-cb21c64852c1"/>
+				<text><![CDATA[10011]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="78" width="551" height="1" uuid="cd01c350-b418-4d61-b7b6-88cf6afb504d"/>
+			</line>
+			<textField>
+				<reportElement x="-1" y="27" width="556" height="20" uuid="40c87134-3b1d-4b9b-9292-9af9b4d87dd7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{MNAMA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement x="218" y="26" width="129" height="20" uuid="6ce63e5a-c5fb-443b-bddf-5048b6d61cf1"/>
+				<text><![CDATA[Maklumat Hutang Semasa]]></text>
+			</staticText>
+			<line>
+				<reportElement x="347" y="33" width="100" height="1" uuid="fb26ab4c-6eb7-4e94-9afd-804842a6f1fc"/>
+			</line>
+			<line>
+				<reportElement x="108" y="31" width="100" height="1" uuid="abe8e8e1-972a-44af-afab-b01d7fa43b15"/>
+			</line>
+			<staticText>
+				<reportElement x="210" y="51" width="143" height="20" uuid="ac09a385-9a0a-4412-9974-9902541836c9"/>
+				<text><![CDATA[Maklumat Hutang Tunggakan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="27" width="7" height="20" uuid="ac5fddd8-4633-4aec-915d-30013de899e7"/>
+				<text><![CDATA[>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="103" y="25" width="11" height="15" uuid="f48b7c98-5872-4f73-9900-1e9e07771ff5"/>
+				<text><![CDATA[<]]></text>
+			</staticText>
+			<line>
+				<reportElement x="353" y="58" width="100" height="1" uuid="ecac3e1e-0cfa-4c40-a504-8522cfa42fda"/>
+			</line>
+			<line>
+				<reportElement x="100" y="57" width="100" height="1" uuid="0f74c86a-19d0-4faa-a5d8-440ff254f27d"/>
+			</line>
+			<staticText>
+				<reportElement x="95" y="51" width="12" height="14" uuid="831a89a8-fb4a-4c61-b1c1-2a78e3fc9e59"/>
+				<text><![CDATA[<]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="70" width="551" height="1" uuid="a940ee7e-1d3b-45e0-934b-912c980c87b1"/>
+			</line>
+			<staticText>
+				<reportElement x="452" y="52" width="5" height="15" uuid="42eb80c2-391d-474f-a802-e16485be99cb"/>
+				<text><![CDATA[>]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="26" width="21" height="15" uuid="6e597dc7-184d-4d88-8600-c3f553f86d48"/>
+				<text><![CDATA[Bil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="11" width="65" height="15" uuid="5e0f84c5-a415-45cc-8889-a5278be95a06"/>
+				<text><![CDATA[Kod Akaun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="26" width="69" height="15" uuid="1908b726-d8fa-4a9a-952f-8019ffe3f19f"/>
+				<text><![CDATA[Nama Pemilik]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="26" width="61" height="15" uuid="7ab82a75-d759-4c90-a26c-26f3481be578"/>
+				<text><![CDATA[Cukai Taksir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="26" width="65" height="15" uuid="9a247e34-0dd1-47cb-a96d-d392eb5116a1"/>
+				<text><![CDATA[Denda Lewat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="26" width="30" height="15" uuid="0a1d9aa8-1888-4298-808f-57ed969463be"/>
+				<text><![CDATA[Notis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="26" width="34" height="15" uuid="edabb069-9b40-4666-8ab7-30f84c6a2415"/>
+				<text><![CDATA[Waran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="26" width="43" height="15" uuid="68563918-313d-404f-9d90-7ca26b01901e"/>
+				<text><![CDATA[Lebihan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="474" y="26" width="80" height="15" uuid="63e510ef-0b42-4c65-86d5-daf0d78e461f"/>
+				<text><![CDATA[Jumlah Hutang]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="374" splitType="Stretch">
+			<textField>
+				<reportElement x="3" y="3" width="21" height="20" uuid="69ba88d7-60ea-4a1c-acdb-4ca6a94353b7"/>
+				<textFieldExpression><![CDATA[$F{BILA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="3" width="94" height="20" uuid="d98a86f8-11e9-4f4e-b557-aa2f055dc5fd"/>
+				<textFieldExpression><![CDATA[$F{KODTTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="23" width="100" height="20" uuid="fa77ca78-9463-47bb-a9db-1c34ec3b7f80"/>
+				<textFieldExpression><![CDATA[$F{NMBILAA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="174" y="3" width="61" height="20" uuid="9221ca1b-caf1-4f95-9870-846f71233741"/>
+				<textFieldExpression><![CDATA[$F{CUKAISMAA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="4" width="63" height="20" uuid="ad37cde8-7725-4bc7-8e7e-8a1fe0b38271"/>
+				<textFieldExpression><![CDATA[$F{DENDASMAA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="4" width="32" height="20" uuid="5acb8788-0803-4cd8-8057-907469e5d3e3"/>
+				<textFieldExpression><![CDATA[$F{NOTISSMAA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="4" width="31" height="20" uuid="b445fc40-388c-48f0-a249-f8d287f75cfe"/>
+				<textFieldExpression><![CDATA[$F{WARANSMAA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="4" width="43" height="20" uuid="f328a5b4-479f-4f6d-86a5-8ab38ee3c0c7"/>
+				<textFieldExpression><![CDATA[$F{LEBIHANAA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="4" width="80" height="20" uuid="837ee3e9-96ba-4063-824d-f06d88ea783b"/>
+				<textFieldExpression><![CDATA[$F{SJUMLAHAA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="174" y="24" width="61" height="20" uuid="1f4822be-789a-408b-89f0-75b239d28f57"/>
+				<textFieldExpression><![CDATA[$F{CUKAITKAA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="25" width="63" height="20" uuid="c85fc482-283f-458c-af58-6a8f71a04b2c"/>
+				<textFieldExpression><![CDATA[$F{DENDATKAA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="25" width="33" height="20" uuid="28c0f118-fd51-4aed-bee2-282f310a26f2"/>
+				<textFieldExpression><![CDATA[$F{NOTISTKAA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="25" width="31" height="20" uuid="5cfc598a-4992-4563-9819-f9b837fa30c0"/>
+				<textFieldExpression><![CDATA[$F{WARANTKAA}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="171" y="67" width="383" height="1" uuid="c6184110-5286-44ef-827a-3bf70bf40c24"/>
+			</line>
+			<staticText>
+				<reportElement x="42" y="74" width="94" height="16" uuid="05af52e2-7fba-48ca-b6c9-5eed9fb11ced"/>
+				<text><![CDATA[Jumlah Mukasurat   :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="173" y="74" width="62" height="20" uuid="ba2e52dc-b799-47bc-bbe4-41467c22970c"/>
+				<textFieldExpression><![CDATA[$F{CUKAISMAP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="74" width="61" height="20" uuid="aca92dee-7fb4-4cba-9c54-175ceda3ce2d"/>
+				<textFieldExpression><![CDATA[$F{DENDASMAP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="74" width="33" height="20" uuid="4dc5aef0-2e53-4d4a-8f94-d1f43d83df71"/>
+				<textFieldExpression><![CDATA[$F{NOTISSMAP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="74" width="31" height="20" uuid="e6e015eb-50b7-46ec-9f48-40bafe45fd52"/>
+				<textFieldExpression><![CDATA[$F{WARANSMAP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="74" width="43" height="20" uuid="56b2d5fc-5e77-4f7a-9276-4be8f777baf7"/>
+				<textFieldExpression><![CDATA[$F{LEBIHANAP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="74" width="78" height="20" uuid="067073f9-39d2-4f70-b875-1a0713c3ae0a"/>
+				<textFieldExpression><![CDATA[$F{SJUMLAHAP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="173" y="95" width="62" height="20" uuid="4665a160-c872-42d0-afbf-4711f87b535a"/>
+				<textFieldExpression><![CDATA[$F{CUKAITKAP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="95" width="61" height="20" uuid="211381c8-2328-4274-ab4c-9855f12525ee"/>
+				<textFieldExpression><![CDATA[$F{DENDATKAA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="324" y="95" width="35" height="20" uuid="a11845a7-f5f1-4f05-b0ba-245c7318e976"/>
+				<textFieldExpression><![CDATA[$F{NOTISTKAP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="95" width="31" height="20" uuid="32319e95-4be1-4922-997e-82169f28d6c0"/>
+				<textFieldExpression><![CDATA[$F{WARANTKAP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="62" y="159" width="74" height="16" uuid="f0322fdd-76ac-4226-a85c-46fd9e8400d8"/>
+				<text><![CDATA[Jumlah Besar   :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="173" y="136" width="381" height="1" uuid="d5e41d2a-e1ef-472e-8f6a-0e462f344b95"/>
+			</line>
+			<line>
+				<reportElement x="174" y="148" width="380" height="1" uuid="1a314dd9-5116-43f0-8258-dd3a7dd8da04"/>
+			</line>
+			<textField>
+				<reportElement x="173" y="159" width="62" height="20" uuid="8c7f65d0-a093-494d-9218-c80902726230"/>
+				<textFieldExpression><![CDATA[$F{CUKAISMAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="159" width="61" height="20" uuid="e8afad05-e8ba-4a14-a321-2ace97085cb0"/>
+				<textFieldExpression><![CDATA[$F{DENDASMAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="159" width="33" height="20" uuid="a0db1ddc-f0a3-4084-ae72-c2f5b36358f4"/>
+				<textFieldExpression><![CDATA[$F{NOTISSMAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="159" width="31" height="20" uuid="8fc18d11-57a5-4bf2-9d4b-6407e74682e6"/>
+				<textFieldExpression><![CDATA[$F{WARANSMAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="159" width="43" height="20" uuid="9dee3dda-547c-4e74-a5a5-52b8bd835726"/>
+				<textFieldExpression><![CDATA[$F{LEBIHANAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="159" width="78" height="20" uuid="67ab0264-2957-4d94-8280-a3ae3f2b7939"/>
+				<textFieldExpression><![CDATA[$F{SJUMLAHAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="174" y="180" width="61" height="20" uuid="fd306173-ffc8-41da-aeb2-10b7dcac22c9"/>
+				<textFieldExpression><![CDATA[$F{CUKAITKAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="180" width="61" height="20" uuid="36028e5a-9fdb-4d6c-8685-bbe53673b185"/>
+				<textFieldExpression><![CDATA[$F{DENDATKAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="323" y="180" width="35" height="20" uuid="795bed6e-17dc-44b3-b1f9-fa232c34488c"/>
+				<textFieldExpression><![CDATA[$F{NOTISTKAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="180" width="31" height="20" uuid="c00a87d5-ff46-464e-b651-4f6d4fd250c0"/>
+				<textFieldExpression><![CDATA[$F{WARANTKAR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="httl11" language="groovy" pageWidth="840" pageHeight="595" orientation="Landscape" columnWidth="840" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="cb180bbb-8523-415c-a139-4af07be0fbdf">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="476"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PARAM1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PARAM2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PARAM3" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select	SUM(decode(substr(pyt_kdrjk,1,1),2,pyt_amaun,0)) tem_ambyr,
+                SUM(decode(substr(pyt_kdrjk,1,1),1,pyt_amaun,0)) tem_ambil,
+                (SUM(decode(substr(pyt_kdrjk,1,1),'1',pyt_amaun,0))-
+          	SUM(decode(substr(pyt_kdrjk,1,1),'2',pyt_amaun,0))) pyt_hbaki
+from         mtkn.hvpnyt,spbt.trxkod
+where      trx_itkod = pyt_kdrjk and trx_modin = 'T' and pyt_stats = $P{PARAM3}
+and  	pyt_akaun BETWEEN $P{PARAM1} AND $P{PARAM2}]]>
+	</queryString>
+	<field name="TEM_AMBYR" class="java.math.BigDecimal"/>
+	<field name="TEM_AMBIL" class="java.math.BigDecimal"/>
+	<field name="PYT_HBAKI" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="1" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="057fcebc-f967-4e46-8f32-db1fa15b4ef4" x="500" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TEM_AMBIL}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="9db6fa4b-72e0-49c4-b735-00a4e9d97e37" x="600" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TEM_AMBYR}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="78c5bf42-62ea-4ec0-8660-a50dbef905ec" x="700" y="0" width="100" height="20"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PYT_HBAKI}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="eaad8847-dbaa-4639-bdd9-f50b59cc829c" x="400" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Jumlah Besar :]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="593f95f0-f473-4842-8dd2-ad60abafb740" x="502" y="19" width="298" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

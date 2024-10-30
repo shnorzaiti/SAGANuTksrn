@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pemilikPegangan" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ae0811d4-d7b3-45ee-b3bd-404a0028396b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="72"/>
+	<parameter name="PARAM1" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\ePBT\\NuTksrn\\web\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT PEG_AKAUN, PEG_OLDAC, PMK_PLGID, PMK_NMBIL, PVD_WKBGSA, NVL2(PVD_ALMT1, PVD_ALMT1 || '<br/>', '') || NVL2(PVD_ALMT2, PVD_ALMT2 || '<br/>', '') || NVL2(PVD_ALMT3, PVD_ALMT3 || '<br/>', '') || NVL2(PVD_ALMT4, PVD_ALMT4 || '<br/>', '') || NVL2(PVD_ALMT5, PVD_ALMT5, '') PVD_ALMT, PEG_STATF, PEG_BILPK, PMK_HKMLK, PMK_KDANS, PMK_PRTUS, PEG_RJFIL, PMK_RUJMJ, PMK_JILID, PMK_KDEXP, NVL2(ADPG1, ADPG1 || '<br/>', '') || NVL2(ADPG2, ADPG2 || '<br/>', '') || NVL2(ADPG3, ADPG3 || '<br/>', '') || NVL2(ADPG4, ADPG4 || '<br/>', '') ADPG, HRT_HNAMA, JPK_JNAMA, TNH_TNAMA,STB_SNAMA, BGN_BNAMA, PEG_STATK, to_char (PEG_NILTH,'fm999,999,990.90') PEG_NILTH, PEG_NOMPT,
+to_char (KAW_KADAR,'fm999,999,990.90') KAW_KADAR, PEG_PELAN, to_char (PEG_TKSIR,'fm999,999,990.90') PEG_TKSIR, TO_CHAR(PEG_TKHOC,'dd/mm/yyyy') PEG_TKHOC, to_char (PEG_LSBGN,'fm999,999,990.90') PEG_LSBGN, TO_CHAR(PEG_TKHPL,'dd/mm/yyyy') PEG_TKHPL,
+to_char (PEG_LSTNH,'fm999,999,990.90') PEG_LSTNH, TO_CHAR(PEG_TKHTK,'dd/mm/yyyy') PEG_TKHTK, PEG_RJMMK, PEG_NOLOT, PEG_JLKOD || ' - ' || JLN_JNAMA JLN_JNAMA, PEG_BLLOT, PEG_STATF, PEG_SMPAH
+FROM MTKN.HVNDUK4
+WHERE PEG_AKAUN = $P{PARAM1}]]>
+	</queryString>
+	<field name="PEG_AKAUN" class="java.math.BigDecimal"/>
+	<field name="PEG_OLDAC" class="java.lang.String"/>
+	<field name="PMK_PLGID" class="java.lang.String"/>
+	<field name="PMK_NMBIL" class="java.lang.String"/>
+	<field name="PVD_WKBGSA" class="java.lang.String"/>
+	<field name="PVD_ALMT" class="java.lang.String"/>
+	<field name="PEG_STATF" class="java.lang.String"/>
+	<field name="PEG_BILPK" class="java.math.BigDecimal"/>
+	<field name="PMK_HKMLK" class="java.lang.String"/>
+	<field name="PMK_KDANS" class="java.lang.String"/>
+	<field name="PMK_PRTUS" class="java.math.BigDecimal"/>
+	<field name="PEG_RJFIL" class="java.lang.String"/>
+	<field name="PMK_RUJMJ" class="java.lang.String"/>
+	<field name="PMK_JILID" class="java.lang.String"/>
+	<field name="PMK_KDEXP" class="java.lang.String"/>
+	<field name="ADPG" class="java.lang.String"/>
+	<field name="HRT_HNAMA" class="java.lang.String"/>
+	<field name="JPK_JNAMA" class="java.lang.String"/>
+	<field name="TNH_TNAMA" class="java.lang.String"/>
+	<field name="STB_SNAMA" class="java.lang.String"/>
+	<field name="BGN_BNAMA" class="java.lang.String"/>
+	<field name="PEG_STATK" class="java.lang.String"/>
+	<field name="PEG_NILTH" class="java.lang.String"/>
+	<field name="PEG_NOMPT" class="java.lang.String"/>
+	<field name="KAW_KADAR" class="java.lang.String"/>
+	<field name="PEG_PELAN" class="java.lang.String"/>
+	<field name="PEG_TKSIR" class="java.lang.String"/>
+	<field name="PEG_TKHOC" class="java.lang.String"/>
+	<field name="PEG_LSBGN" class="java.lang.String"/>
+	<field name="PEG_TKHPL" class="java.lang.String"/>
+	<field name="PEG_LSTNH" class="java.lang.String"/>
+	<field name="PEG_TKHTK" class="java.lang.String"/>
+	<field name="PEG_RJMMK" class="java.lang.String"/>
+	<field name="PEG_NOLOT" class="java.lang.String"/>
+	<field name="JLN_JNAMA" class="java.lang.String"/>
+	<field name="PEG_BLLOT" class="java.math.BigDecimal"/>
+	<field name="PEG_SMPAH" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="77" uuid="9b206d11-7ad2-4639-ab6b-7b7e49d4d089"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Logo.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="256" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="20" backcolor="#CCCCCC" uuid="622b0eda-6310-4733-8485-4804753b4344"/>
+				<box leftPadding="3"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[MAKLUMAT PEMILIK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="100" height="20" uuid="e64eb7c9-daec-427e-a8c4-b0b7feec67f4"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NO. AKAUN :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="30" width="200" height="20" uuid="3393ed46-4595-42ae-8147-9626048ae2fe"/>
+				<textFieldExpression><![CDATA[$F{PEG_AKAUN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="30" width="125" height="20" uuid="02a5ed3d-e134-415b-8f3a-0048c3a3dd08"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[AKAUN LAMA :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="30" width="130" height="20" uuid="8ec71b50-e741-47e5-9346-d4f641bc93b7"/>
+				<textFieldExpression><![CDATA[$F{PEG_OLDAC} == null ? "-" : $F{PEG_OLDAC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="50" width="100" height="30" uuid="4dd7cb39-ecae-4070-bf21-a560610f57e8"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NO. K/P / PENDAFTARAN:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="50" width="200" height="20" uuid="7be5bc47-2fb0-417d-ad26-c6d6be17cf96"/>
+				<textFieldExpression><![CDATA[$F{PMK_PLGID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="80" width="100" height="20" uuid="642f4bad-2f38-4bc4-8789-9af354ce10c6"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NAMA PEMILIK :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="80" width="200" height="20" uuid="390e92f2-9fca-4ccf-87ca-0b4e3680c552"/>
+				<textFieldExpression><![CDATA[$F{PMK_NMBIL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="80" width="125" height="20" uuid="0e1be479-a864-4ad8-b91d-753261140656"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[BANGSA :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="80" width="130" height="20" uuid="589f6639-d145-4b71-b4ef-af65f7f38c5f"/>
+				<textFieldExpression><![CDATA[$F{PVD_WKBGSA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="100" width="100" height="20" uuid="3684d71f-ffaa-461f-b953-b82bb70bb6d7"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[ALAMAT PEMILIK :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="100" width="200" height="60" uuid="b0ddb89e-155b-4315-91de-015e00e555fd"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{PVD_ALMT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="100" width="125" height="20" uuid="5c154082-307e-4e14-b10d-b1eaaacc1650"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[STATUS :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="100" width="130" height="20" uuid="c955d8dc-7ea5-4bc2-b9b6-da9ae39fb03a"/>
+				<textFieldExpression><![CDATA[$F{PEG_STATF}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="160" width="125" height="20" uuid="1b0eb4e0-4f03-40a0-a06d-3128879e1761"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NO. HAKMILIK :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="160" width="130" height="20" uuid="93129aec-da21-4dcd-aef4-465a90bdcace"/>
+				<textFieldExpression><![CDATA[$F{PMK_HKMLK}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="160" width="100" height="20" uuid="e8ded1ad-93dc-446b-a748-d64a38796fad"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[BIL. PEMILIK :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="160" width="200" height="20" uuid="c1d9344a-f369-4d29-9045-fc86090dd518"/>
+				<textFieldExpression><![CDATA[$F{PEG_BILPK}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="180" width="100" height="20" uuid="ba24b9cf-1750-4376-8fd2-0d29568a0296"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[KOD ANSURAN :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="180" width="200" height="20" uuid="e0afb956-728e-4244-83fc-220da8a24b71"/>
+				<textFieldExpression><![CDATA[$F{PMK_KDANS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="180" width="125" height="20" uuid="73503176-f5e9-4392-a0e8-f25a780880dd"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[TAKSIRAN (%) :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="180" width="130" height="20" uuid="913d803e-6af7-49dd-be86-4c87f6d14c6f"/>
+				<textFieldExpression><![CDATA[$F{PMK_PRTUS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="200" width="100" height="20" uuid="59af42ea-e57d-4aad-b64d-330f0588eebc"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[RUJUKAN FAIL :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="200" width="200" height="20" uuid="f6233f26-1cd3-436c-b942-9a9a594a5758"/>
+				<textFieldExpression><![CDATA[$F{PEG_RJFIL} == null ? "-" : $F{PEG_RJFIL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="200" width="125" height="20" uuid="3d61e40e-bb81-48de-a2fd-a001cd964d61"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[RUJUKAN MAJLIS :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="200" width="130" height="20" uuid="d010bb7e-b896-4505-824b-f7a2d5be1498"/>
+				<textFieldExpression><![CDATA[$F{PMK_RUJMJ} == null ? "-" : $F{PMK_RUJMJ}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="220" width="100" height="20" uuid="c9e292c7-7074-4967-a2af-b48bf7686f0e"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NO. JILID :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="220" width="200" height="20" uuid="abdb1179-d0f4-431a-a9d3-dcfb442508c8"/>
+				<textFieldExpression><![CDATA[$F{PMK_JILID} == null ? "-" : $F{PMK_JILID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="220" width="125" height="20" uuid="f1f35cb4-8598-40df-ad4e-98681426552a"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[DIKECUALIKAN BIL :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="220" width="130" height="20" uuid="ca0d8ce9-3d44-4d4f-a242-e8766a11a32a"/>
+				<textFieldExpression><![CDATA[$F{PMK_KDEXP} == null ? "-" : $F{PMK_KDEXP}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="431">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="30172851-123f-4434-999c-92853c7fe470"/>
+				<box leftPadding="3"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[MAKLUMAT PEGANGAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="100" height="20" uuid="d3da0194-2a24-4e72-89a5-69ecaa8bf534"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[ALAMAT HARTA :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="30" width="200" height="60" uuid="6dc562c4-f663-46c8-a83c-4b5b6bc02951"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{ADPG}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="90" width="100" height="30" uuid="b2983721-59ab-47f0-aafb-7cc0820f68f2"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[KEGUNAAN HARTANAH :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="90" width="200" height="20" uuid="cdda78d7-bfa6-4052-82b8-13afaf7e5bc6"/>
+				<textFieldExpression><![CDATA[$F{HRT_HNAMA} == null ? "-" : $F{HRT_HNAMA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="90" width="125" height="20" uuid="3a164669-6c3d-43cc-9276-ff14451c00e9"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[JENIS PEMILIK :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="90" width="130" height="20" uuid="46ec7572-a281-4722-a772-f47f4fb32673"/>
+				<textFieldExpression><![CDATA[$F{JPK_JNAMA} == null ? "-" : $F{JPK_JNAMA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="120" width="100" height="30" uuid="abb83534-c75f-4bf6-a8fa-d607a8e5bf87"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[KEGUNAAN TANAH :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="120" width="200" height="20" uuid="e4c58c0d-4503-4a27-bfa5-0b44f346677f"/>
+				<textFieldExpression><![CDATA[$F{TNH_TNAMA} == null ? "-" : $F{TNH_TNAMA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="120" width="125" height="30" uuid="0ffff4e4-c120-45c2-9468-a7a4e69fd9bc"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[STRUKTUR BANGUNAN :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="120" width="130" height="20" uuid="17b45b17-bc2c-49e1-9db1-9f789e6788f7"/>
+				<textFieldExpression><![CDATA[$F{STB_SNAMA} == null ? "-" : $F{STB_SNAMA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="160" width="100" height="20" uuid="2e61f648-dec0-44de-ae1f-2e89d34fa882"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[JENIS BANGUNAN :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="160" width="200" height="20" uuid="2562441c-6ac5-4058-a7fb-1d5e3b51ae16"/>
+				<textFieldExpression><![CDATA[$F{BGN_BNAMA} == null ? "-" : $F{BGN_BNAMA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="190" width="100" height="30" uuid="c4756c42-1c85-4da5-8ad1-6f799d80c08e"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[STATUS PEGANGAN :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="190" width="200" height="20" uuid="bd36e336-d796-405b-93b5-552f88e6f752"/>
+				<textFieldExpression><![CDATA[$F{PEG_STATK} == null ? "-" : $F{PEG_STATK}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="160" width="125" height="30" uuid="f83e2eed-9713-4209-be27-720854711804"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NILAI TAHUNAN (RM) :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="160" width="130" height="20" uuid="e8882b57-8694-4ddc-a68c-7b207d902835"/>
+				<textFieldExpression><![CDATA[$F{PEG_NILTH} == null ? "-" : $F{PEG_NILTH}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="220" width="100" height="20" uuid="8c6aaa2e-b631-4186-ab32-f435702218c9"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NO. P.T :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="220" width="200" height="20" uuid="dea6e77d-b0f0-4379-bde5-751d02f3e79b"/>
+				<textFieldExpression><![CDATA[$F{PEG_NOMPT} == null ? "-" : $F{PEG_NOMPT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="190" width="125" height="30" uuid="931e0fda-a09b-4db2-b7b7-5ea091467bcb"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[KADAR PERATUS (%) :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="190" width="130" height="20" uuid="5121c877-cf40-4563-acbe-ca518af36a30"/>
+				<textFieldExpression><![CDATA[$F{KAW_KADAR} == null ? "-" : $F{KAW_KADAR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="250" width="100" height="20" uuid="85d43490-023a-4813-b1a5-ffb81d5825ea"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NO. PELAN :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="250" width="200" height="20" uuid="79827367-bd4d-4417-b385-f6d7f3268ed5"/>
+				<textFieldExpression><![CDATA[$F{PEG_PELAN} == null ? "-" : $F{PEG_PELAN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="220" width="125" height="30" uuid="59350590-ae82-4769-9459-ff192c53b4ae"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[TAKSIRAN TAHUNAN (RM) :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="220" width="130" height="20" uuid="c9c5428e-0404-402f-a10a-65291eca1145"/>
+				<textFieldExpression><![CDATA[$F{PEG_TKSIR} == null ? "-" : $F{PEG_TKSIR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="280" width="100" height="20" uuid="3d802779-5d40-4a70-a8d2-32208477eaef"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[TARIKH O.C. :]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="100" y="280" width="200" height="20" uuid="971edfe9-bbc7-409a-bca1-ad069d4ba4c2"/>
+				<textFieldExpression><![CDATA[$F{PEG_TKHOC} == null ? "-" : $F{PEG_TKHOC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="250" width="125" height="30" uuid="f9808998-edf1-43e2-bd0c-0a9bc7d24aff"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[LUAS BANGUNAN (m²) :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="250" width="130" height="20" uuid="ea9b4b54-3171-46f2-9b0f-30de6dfc4bc6"/>
+				<textFieldExpression><![CDATA[$F{PEG_LSBGN} == null ? "-" : $F{PEG_LSBGN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="300" width="100" height="20" uuid="9942f51c-4c8c-4be8-8f38-5054ba6176de"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[TARIKH ACM :]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="100" y="300" width="200" height="20" uuid="8a24c89f-8428-4471-a9a4-9bbaae053e73"/>
+				<textFieldExpression><![CDATA[$F{PEG_TKHPL} == null ? "-" : $F{PEG_TKHPL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="280" width="125" height="20" uuid="3a8cde48-3953-4db2-9a04-b221a7349b77"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[LUAS TANAH (m²) :
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="280" width="130" height="20" uuid="037d1fb5-2538-49f8-9358-75eff3436089"/>
+				<textFieldExpression><![CDATA[$F{PEG_LSTNH} == null ? "-" : $F{PEG_LSTNH}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="320" width="100" height="30" uuid="d87f3230-8a46-4ac0-925c-fef1506336e7"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[TARIKH KUATKUASA :]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="100" y="320" width="200" height="20" uuid="9422bef8-7008-49cb-828f-818f6caefe47"/>
+				<textFieldExpression><![CDATA[$F{PEG_TKHTK} == null ? "-" : $F{PEG_TKHTK}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="350" width="100" height="20" uuid="dcabbdac-2b4b-42e9-92bc-0e8f7f644246"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[RUJUKAN MMK :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="350" width="200" height="20" uuid="3032a5e7-bb6d-48f7-be3f-ccd626b75176"/>
+				<textFieldExpression><![CDATA[$F{PEG_RJMMK} == null ? "-" : $F{PEG_RJMMK}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="370" width="100" height="20" uuid="c8a126ef-4678-484e-9a0f-cce212dbb22e"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NO. LOT :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="370" width="200" height="20" uuid="ec71e580-ebed-4806-8056-c1ba328ab8f7"/>
+				<textFieldExpression><![CDATA[$F{PEG_NOLOT} == null ? "-" : $F{PEG_NOLOT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="390" width="100" height="20" uuid="962478c4-63de-406c-9879-a3398288b424"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[KOD JALAN :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="390" width="455" height="20" uuid="c37c121e-0fe1-4e73-8056-861cd3832a5a"/>
+				<textFieldExpression><![CDATA[$F{JLN_JNAMA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="410" width="100" height="20" uuid="96000006-c2fa-4449-ba1d-b71edecf4f58"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[BIL. LOT :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="410" width="200" height="20" uuid="55c56d55-b1ba-46d4-b25f-e7a0e5431fa8"/>
+				<textFieldExpression><![CDATA[$F{PEG_BLLOT} == null ? "-" : $F{PEG_BLLOT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="299" y="410" width="126" height="20" uuid="cbfee618-a479-4148-88ee-a7a479a41c7d"/>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[CAJ PERKHIDMATAN :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="410" width="130" height="20" uuid="c74f039f-eb32-4a76-8165-8d838b8ed89d"/>
+				<textFieldExpression><![CDATA[$F{PEG_SMPAH} == null ? "-" : $F{PEG_SMPAH}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

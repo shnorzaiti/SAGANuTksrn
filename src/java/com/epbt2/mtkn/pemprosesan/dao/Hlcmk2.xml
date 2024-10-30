@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE daogen-metadata>
+
+<daogen-metadata>
+   <version>2.4.1</version>
+   <timestamp>05.08.2014</timestamp>
+
+   <tableName>MTKN.HLCMK2</tableName>
+   <className>MTKN.HLCMK2</className>
+   <language>java</language>
+   <database>oracle</database>
+   <useCache>false</useCache>
+   <classPackage>com.epbt2.mtkn.pemprosesan.dao</classPackage>
+   <columns>
+      <dbColumn PK="true" colType="String" colName="CM2_JBKOD" varName="cm2Jbkod" 
+      automatic="false" valueSource="" indexed="true" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="true" colType="String" colName="CM2_KDRJK" varName="cm2Kdrjk" 
+      automatic="false" valueSource="" indexed="true" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="true" colType="String" colName="CM2_NOBIL" varName="cm2Nobil" 
+      automatic="false" valueSource="" indexed="true" colLength="255" orderLevel="1" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="CM2_NORES" varName="cm2Nores" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="CM2_AMAUN" varName="cm2Amaun" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="CM2_BAYAR" varName="cm2Bayar" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="CM2_STATF" varName="cm2Statf" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="CM2_LARAS" varName="cm2Laras" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+   </columns>
+</daogen-metadata>

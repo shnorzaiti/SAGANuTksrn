@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MajlisBil" language="groovy" pageWidth="590" pageHeight="840" columnWidth="550" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="a17b6997-1c43-42f9-895a-6fb8d7cf0dfc">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tajuk" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select (select upper(para_value) from spbt.std_sys_param
+        where para_id = '57')||',' ydp,
+       (select upper(para_value) from spbt.std_sys_param
+       where para_id = '54') majlis
+from dual]]>
+	</queryString>
+	<field name="YDP" class="java.lang.String"/>
+	<field name="MAJLIS" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="550" height="15" uuid="ff2f1f00-133a-4f45-b6da-4d44ecb7c5e0"/>
+				<box leftPadding="10"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{YDP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="15" width="550" height="15" uuid="9432249a-84bb-4000-baa7-ce726a726f64"/>
+				<box leftPadding="10"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MAJLIS}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="35" width="549" height="1" uuid="45437cf4-77ed-42b9-861c-6fc9a9cea37c"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

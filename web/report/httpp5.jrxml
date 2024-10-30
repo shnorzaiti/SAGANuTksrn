@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="httpp5" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6d4d7e7a-b525-4401-a0fa-c57370c6e96b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="273"/>
+	<subDataset name="dataset1" uuid="fcaa7d1f-8364-4d86-a592-633470c24654"/>
+	<parameter name="param1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param4" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param5" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param6" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\farisazri\\Documents\\NetBeansProjects\\NuTksrn\\web\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  distinct
+    'T'||maj_mjkod||lpad(peg_akaun,7,0)||'-'||peg_digit noakn,
+            peg_akaun akaun, pmk_nmbil pnama,
+            pvd_almt1 adpk1, pvd_almt2 adpk2, pvd_almt3 adpk3,
+    pvd_almt4 adpk4, pvd_almt5 adpk5,
+            adpg1, adpg2, adpg3, adpg4
+,(select para_value
+
+    from   spbt.std_sys_param
+    where  para_id = 54)keter8,(select para_value
+
+    from   spbt.std_sys_param
+    where  para_id = 55)keter9, (select para_value
+	from spbt.std_sys_param
+	where para_id = 57) keter10,
+(select para_value
+	from MTKN.std_sys_param
+	where para_id = 101) tempoh
+from    	mtkn.hvnduk4, spbt.majlis, mtkn.hlhtrx
+where 	pmk_akaun = peg_akaun
+and 	jln_kwkod = kaw_kwkod and peg_htkod = kaw_htkod
+and 	peg_jlkod = jln_jlkod
+and	peg_akaun = htx_akaun
+and 	peg_jpkod = jpk_jpkod
+and 	jpk_itkod = '11010'
+and 	(peg_statf  <> 'H' or peg_statf is null)
+and 	((peg_akaun between $P{param1} and $P{param2})
+and 	 (peg_jlkod between $P{param3} and $P{param4}))
+having 	sum(htx_amaun) between $P{param5} and $P{param6}
+group by 	maj_mjkod, peg_akaun, peg_digit, pmk_nmbil, pvd_almt1,
+	pvd_almt2, pvd_almt3, pvd_almt4, pvd_almt5,  adpg1, adpg2, adpg3, adpg4
+order by 	peg_akaun]]>
+	</queryString>
+	<field name="NOAKN" class="java.lang.String"/>
+	<field name="AKAUN" class="java.math.BigDecimal"/>
+	<field name="PNAMA" class="java.lang.String"/>
+	<field name="ADPK1" class="java.lang.String"/>
+	<field name="ADPK2" class="java.lang.String"/>
+	<field name="ADPK3" class="java.lang.String"/>
+	<field name="ADPK4" class="java.lang.String"/>
+	<field name="ADPK5" class="java.lang.String"/>
+	<field name="ADPG1" class="java.lang.String"/>
+	<field name="ADPG2" class="java.lang.String"/>
+	<field name="ADPG3" class="java.lang.String"/>
+	<field name="ADPG4" class="java.lang.String"/>
+	<field name="KETER8" class="java.lang.String"/>
+	<field name="KETER9" class="java.lang.String"/>
+	<field name="KETER10" class="java.lang.String"/>
+	<field name="TEMPOH" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="75" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="553" height="75" uuid="e91f1181-f23e-46f2-8a64-8b847dba1878"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Logo.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="402" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="305" height="20" uuid="6042a2df-17e5-4671-b977-6b820c0f857b"/>
+				<textFieldExpression><![CDATA[$F{PNAMA}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="20" width="305" height="15" uuid="9000373f-ee60-469e-ab3b-bc46b5dcd78c"/>
+				<textFieldExpression><![CDATA[$F{ADPK1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="34" width="305" height="15" uuid="3fac2c41-1b6c-474e-9cc3-063fd74691cc"/>
+				<textFieldExpression><![CDATA[$F{ADPK2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="48" width="305" height="15" uuid="f3e552fe-5f7f-4af5-8b3b-2ea62f4fb2df"/>
+				<textFieldExpression><![CDATA[$F{ADPK3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="62" width="305" height="15" uuid="1f67a0a7-505b-4043-848b-c18f0d8293d1"/>
+				<textFieldExpression><![CDATA[$F{ADPK4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="101" width="100" height="20" uuid="27fb0903-6527-4e2a-8967-05c696efa720"/>
+				<text><![CDATA[Alamat Harta :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="76" width="305" height="15" uuid="6256c0db-79a2-4f19-81bd-2cce6a5ca9ee"/>
+				<textFieldExpression><![CDATA[$F{ADPK5}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="236" width="555" height="20" uuid="9f8c0717-0001-41f8-8612-ae45a09884b6"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Adalah saya dengan hormatnya merujuk kepada perkara tersebut di atas.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="120" width="305" height="15" uuid="4bb8e2a1-aca4-49a0-a13a-0de710a80a21"/>
+				<textFieldExpression><![CDATA[$F{ADPG1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="211" width="555" height="20" uuid="2b962a95-0249-46d8-ad01-c3907ea76244"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Perkara : Surat Peringatan Tunggakan Cukai Taksiran Am]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="134" width="305" height="15" uuid="ea81ecf1-3aff-4ba7-83ee-90552a275e05"/>
+				<textFieldExpression><![CDATA[$F{ADPG2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="185" width="100" height="20" uuid="b8667b99-0f5c-42cc-b185-d1ca2daaf744"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Tuan,]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="148" width="305" height="15" uuid="30efb0cf-894d-4a07-a0c2-9a249ea3832c"/>
+				<textFieldExpression><![CDATA[$F{ADPG3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="260" width="555" height="20" uuid="eadf7b27-7fc4-4f98-9fa6-35092bfbc0e1"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[2.     Mengikut rekod Majlis tuan mempunyai jumlah tunggakan seperti berikut :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="20" width="100" height="20" uuid="44916132-e174-49c2-9a97-8e91e26f0788"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[No. Akaun :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="477" y="20" width="100" height="20" uuid="a81000f7-7120-4a02-9dd0-7ace95fe980d"/>
+				<textFieldExpression><![CDATA[$F{NOAKN}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="476" y="0" width="100" height="20" uuid="c7446ac5-fec7-4f99-888c-ca164d4bcded"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="376" y="0" width="100" height="20" uuid="7f984873-a335-4e2c-a5c8-440a6e522bdc"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Tarikh :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="285" width="197" height="20" uuid="af8d8454-74e1-4705-8091-59bb9bf8b292"/>
+				<text><![CDATA[KETERANGAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="285" width="165" height="20" uuid="5d3da0e3-39ca-467a-8ad0-5b2fd899fb75"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[RM]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="82" y="309" width="394" height="87" uuid="07976f5e-8e14-4e1f-ad53-dcbf6dc26c7f"/>
+				<subreportParameter name="param1">
+					<subreportParameterExpression><![CDATA[$F{AKAUN}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="param2">
+					<subreportParameterExpression><![CDATA[$F{AKAUN}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "sub_httpp5.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="163" width="305" height="14" uuid="54509bcf-2d47-452f-a1cc-4916912908eb"/>
+				<textFieldExpression><![CDATA[$F{ADPG4}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="196">
+			<textField>
+				<reportElement x="0" y="24" width="555" height="34" uuid="d4071890-4d8a-44a5-b3ea-b29954178ce2"/>
+				<textElement markup="styled">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Kegagalan tuan untuk menjelaskan amaun tersebut di atas dalam tempoh <style isBold='true' pdfFontName='Helvetica-Bold'>"+$F{TEMPOH}+"</style> hari dari tarikh surat peringatan ini diposkan/diserahkan akan dikenakan tindakan di bawah Seksyen 148 Akta Kerajaan Tempatan 1976 (Akta 171)."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="3" width="555" height="22" uuid="469d10ff-2935-4b65-9ca7-b38a77545774"/>
+				<text><![CDATA[Sekiranya bayaran telah dijelaskan, sila abaikan peringatan ini.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="83" width="100" height="20" uuid="3275c992-643d-40c0-b73e-749e8e0b0da4"/>
+				<text><![CDATA[- t.t -]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="116" width="305" height="15" uuid="4186ad59-cb4f-4ab0-b146-79be72915df5"/>
+				<textFieldExpression><![CDATA[$F{KETER8}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="130" width="305" height="15" uuid="6ac94db1-d2c4-4745-a054-b5f326111efb"/>
+				<textFieldExpression><![CDATA[$F{KETER9}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="150" width="555" height="20" uuid="2ad3a2eb-c901-4b6f-aaed-ed9f3941c629"/>
+				<text><![CDATA[Nota : Surat ini tidak perlu sebarang tandatangan kerana dijana daripada komputer.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="174" width="553" height="20" uuid="29a9491e-8669-4abf-9525-13dff0961b71"/>
+				<text><![CDATA[Sekian, terima kasih.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="104" width="305" height="13" uuid="1fbb6aa1-2db6-48ac-b3dc-55a657ae567a"/>
+				<textFieldExpression><![CDATA[$F{KETER10}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

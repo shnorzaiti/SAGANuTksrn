@@ -1,0 +1,55 @@
+@import "colors";
+@import "extends";
+/*------------------------------------*\
+    #BADGES
+\*------------------------------------*/
+/**
+ * BADGE-COLORS
+ */
+.badge {
+	&.bg-primary {
+		background: $color_moody_blue_approx;
+	}
+	&.bg-success {
+		background: $color_wild_willow_approx;
+	}
+	&.bg-warning {
+		background: #FCB322;
+	}
+	&.bg-important {
+		background: $color_bittersweet_approx;
+	}
+	&.bg-info {
+		background: $color_turquoise_approx;
+	}
+	&.bg-inverse {
+		background: #2A3542;
+	}
+}
+
+.badge-hot {
+	background: $color_mandy_approx;
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	font-size: 18px;
+	color: $white;
+	text-align: center;
+	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+	border-radius: 100%;
+}
+
+.badge-popular {
+	background: $color_curious_blue_approx;
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	font-size: 13px;
+	color: $white;
+	text-align: center;
+	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+	border-radius: 100%;
+}
+.badge-notification {
+	background-color: $color_red_approx;
+}

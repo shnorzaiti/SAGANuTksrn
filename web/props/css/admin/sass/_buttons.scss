@@ -1,0 +1,92 @@
+@import "buttons";
+
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+/**
+ * BUTTON-SHAPE
+ */
+.btn-round {
+	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+	border-radius: 20px;
+}
+/**
+ * BUTTON-THEMES
+ */
+.btn-theme {
+	color: $white;
+	background-color: $color_turquoise_blue_approx;
+	border-color: $color_puerto_rico_approx;
+	&:hover {
+		@extend %extend_1;
+	}
+	&:focus {
+		@extend %extend_1;
+	}
+	&:active {
+		@extend %extend_1;
+	}
+	&.active {
+		@extend %extend_1;
+	}
+}
+.btn-theme02 {
+	color: $white;
+	background-color: $color_dull_lavender_approx;
+	border-color: $color_medium_purple_approx;
+	&:hover {
+		@extend %extend_2;
+	}
+	&:focus {
+		@extend %extend_2;
+	}
+	&:active {
+		@extend %extend_2;
+	}
+	&.active {
+		@extend %extend_2;
+	}
+}
+.btn-theme03 {
+	color: $white;
+	background-color: $color_puerto_rico_approx;
+	border-color: $color_keppel_approx;
+	&:hover {
+		@extend %extend_3;
+	}
+	&:focus {
+		@extend %extend_3;
+	}
+	&:active {
+		@extend %extend_3;
+	}
+	&.active {
+		@extend %extend_3;
+	}
+}
+.btn-theme04 {
+	color: $white;
+	background-color: $color_mandy_approx;
+	border-color: $color_cerise_red_approx;
+	&:hover {
+		@extend %extend_4;
+	}
+	&:focus {
+		@extend %extend_4;
+	}
+	&:active {
+		@extend %extend_4;
+	}
+	&.active {
+		@extend %extend_4;
+	}
+}
+.btn-clear-g {
+	color: $color_puerto_rico_approx;
+	background: transparent;
+	border-color: $color_puerto_rico_approx;
+	&:hover {
+		color: $white;
+	}
+}

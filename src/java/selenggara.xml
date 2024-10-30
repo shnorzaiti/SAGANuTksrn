@@ -1,0 +1,67 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="selenggara" namespace="/selenggara" extends="struts-default">
+        <result-types>
+            <result-type name="tiles"
+                         class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>                    
+        <!-- INTERCEPTOR -->
+        <interceptors>
+            <interceptor name="authentication"
+                         class="com.epbt2.interceptors.AuthenticationInterceptor">
+            </interceptor>
+            <interceptor-stack name="authStack">
+                <interceptor-ref name="authentication"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>        
+        <default-interceptor-ref name="authStack"></default-interceptor-ref>
+        <!-- INTERCEPTOR -->
+        <global-results>
+            <result name="error">/error.jsp</result>
+            <result name="login" type="redirect">/logOutUser</result>
+        </global-results>
+    
+        <action name="*Link" class="com.epbt2.common.LinkAction">
+            <result name="success" type="tiles">${directory}.{1}.tiles</result>
+        </action>       
+        <!-- BYE 20/07/2016 -->  
+        <action name="*Link2" class="com.epbt2.common.LinkAction">
+            <result name="success" type="tiles">${directory}.{1}.tiles2</result>
+        </action>    
+        <!-- BYE 20/07/2016 --> 
+        
+        <!-- BYE 21/07/2016 --> 
+        <!--Selenggara Kadar Denda / Notis E / Waran F -->
+        <action name="*HKadar" class="com.epbt2.mtkn.selenggara.HKadarAction" method="{1}">
+            <result name="success">/mtknSelenggara/DendaNotisWaranForm.jsp</result>
+            <result name="input">/mtknSelenggara/DendaNotisWaranForm.jsp</result>
+            <!--interceptor-ref name="basicStack"/-->
+        </action>
+        <!--<action name="HKadar" class="com.epbt2.mtkn.selenggara.HKadarAction">
+            <result name="success">/mtknSelenggara/DendaNotisWaran.jsp</result>           
+        </action>
+        
+        <action name="*HKadar" class="com.epbt2.mtkn.selenggara.HKadarAction" method="{1}">
+            <result name="success">/mtknSelenggara/DendaNotisWaran.jsp</result>
+        </action>
+        <action name="*HKadarForm" class="com.epbt2.mtkn.selenggara.HKadarformAction" method="{1}">
+            <result name="input">/mtknSelenggara/DendaNotisWaranForm.jsp</result>
+            <result name="success">/mtknSelenggara/DendaNotisWaranForm.jsp</result>
+            <result name="list" type="redirect">HKadar</result>
+        </action>-->
+        <!-- BYE 21/07/2016 --> 
+        
+        <!--<action name="BIcbkAction" class="com.epbt2.mtkn.pemprosesan.BIlcbkAction">
+            <result name="success">/mtknPemprosesan/BilCarBtuKdr.jsp</result>
+        </action>
+        
+        <action name="BilCarBtuKdr" class="com.epbt2.mtkn.pemprosesan.HLjabtAction">
+            <result name="success">/mtknPemprosesan/BilCarBtuKdr.jsp</result>
+        </action>-->
+    </package>
+</struts>
+

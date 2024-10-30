@@ -1,0 +1,136 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="tanya" namespace="/tanya" extends="struts-default">     
+        <result-types>
+            <result-type name="tiles"
+                         class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>                    
+        <!-- INTERCEPTOR -->
+        <interceptors>
+            <interceptor name="authentication"
+                         class="com.epbt2.interceptors.AuthenticationInterceptor">
+            </interceptor>
+            <interceptor-stack name="authStack">
+                <interceptor-ref name="authentication"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>        
+        <default-interceptor-ref name="authStack"></default-interceptor-ref>
+        <!-- INTERCEPTOR -->
+        <global-results>
+            <result name="error">/error.jsp</result>
+            <result name="login" type="redirect">/logOutUser</result>
+        </global-results>
+    
+        <action name="*Link" class="com.epbt2.common.LinkAction">
+            <result name="success" type="tiles">${directory}.{1}.tiles</result>
+        </action>       
+        <!-- BYE 13/06/2016 -->  
+        <action name="*Link2" class="com.epbt2.common.LinkAction">
+            <result name="success" type="tiles">${directory}.{1}.tiles2</result>
+        </action>    
+        <!-- BYE 13/06/2016 --> 
+        <action name="Frame*" class="com.epbt2.common.MenuLoginAction">
+            <result name="success" type="tiles">frame.${directory}.{1}</result>
+            <interceptor-ref name="basicStack"/>
+        </action>
+        <!-- BYE 13/06/2016 --> 
+        <action name="2Frame*" class="com.epbt2.common.MenuLoginAction">
+            <result name="success" type="tiles">2frame.${directory}.{1}</result>
+            <interceptor-ref name="basicStack"/>
+        </action>
+        <!-- BYE 13/06/2016 --> 
+
+        <action name="hutangTerima" class="com.epbt2.mtkn.tanya.HutangTerimaAction">
+            <result name="success">/mtknPertanyaan/HutangTerimaan.jsp</result>
+            <!-- <result name="success" type="tiles">hutangTerimaaan.tiles</result>-->
+        </action>
+        <!--Uzzair-->      
+        <action name="akaunLama" class="com.epbt2.mtkn.tanya.AkaunLama">
+            <result name="success">/mtknPertanyaan/AkaunLama.jsp</result>            
+        </action>
+
+        <action name="*carianPertanyaan" class="com.epbt2.mtkn.tanya.carianPertanyaanAction" method="{1}">
+            <result name="success">/mtknPertanyaan/carianPertanyaan.jsp</result>            
+        </action>
+        <action name="carianPertanyaanDetails" class="com.epbt2.mtkn.tanya.carianPertanyaanAction">
+            <result name="success">/mtknPertanyaan/carianPertanyaan.jsp</result>            
+        </action>                        
+        <action name="PelMklumatPgangan" class="com.epbt2.mtkn.tanya.PelMklumatPganganAction">
+            <result name="success">/mtknPertanyaan/PelMklumatPgangan.jsp</result>            
+        </action>
+        <!--end uzzair-->
+       
+    
+        <!-- AFZAL 6 MAY 2014 -->
+                
+        <action name="FJalan" class="com.epbt2.mtkn.tanya.FJalanAction">
+            <result name="success">/mtknPertanyaan/ListHutangJlnTmnKg.jsp</result>
+        </action>
+        <action name="terimaBulan" class="com.epbt2.mtkn.tanya.TerimaBulanAction">
+            <result name="success">/mtknPertanyaan/TerimaBulanan.jsp</result>            
+        </action>
+        <action name="VTstat" class="com.epbt2.mtkn.tanya.MklumatTransaksiAction">
+            <result name="success">/mtknPertanyaan/MklumatTransaksi.jsp</result>            
+        </action>
+        
+        <action name="KutipanHarian" class="com.epbt2.mtkn.tanya.KutipanHarianAction">
+            <result name="success">/mtknPertanyaan/KutipanHarian.jsp</result>            
+        </action>
+        
+        <!-- END AFZAL 6 MAY 2014 -->
+        
+        <!-- MOHAMMAD HAFIZ TARMIZI 6 MAY 2014 -->
+        <action name="hutangTerimaCbk" class="com.epbt2.mtkn.tanya.HutangTerimaanCbkAction">
+            <result name="success">/mtknPertanyaan/HutangTerimaanCBK.jsp</result>
+        </action>
+        <!-- END MOHAMMAD HAFIZ TARMIZI 6 MAY 2014 -->
+
+      
+
+        <!-- start MOHAMMAD HAFIZ TARMIZI 7 MAY 2014 -->
+        <action name="pelMklumatPmilik" class="com.epbt2.mtkn.tanya.PelMklumatPmilikAction">
+            <result name="success">/mtknPertanyaan/PelMklumatPmilik.jsp</result>
+        </action>
+        <!-- end MOHAMMAD HAFIZ TARMIZI 7 MAY 2014 -->
+
+        <!-- MOHAMMAD HAFIZ TARMIZI 9 MAY 2014 -->
+        <action name="*carianPertanyaanLokasi" class="com.epbt2.mtkn.tanya.carianPertanyaanLokasiAction" method="{1}">
+            <result name="success">/mtknPertanyaan/carianPertanyaanLokasi.jsp</result>            
+        </action>
+        <!-- end MOHAMMAD HAFIZ TARMIZI 9 MAY 2014 -->
+     
+        <!-- MOHAMMAD HAFIZ TARMIZI 24 MAY 2014 -->
+        <action name="kodAkaun" class="com.epbt2.mtkn.tanya.KodAkaunAction">
+            <result name="success">/mtknPertanyaan/KodAkaun.jsp</result>            
+        </action>
+        <!-- end MOHAMMAD HAFIZ TARMIZI 24 MAY 2014 -->
+
+        <action name="carianPenyata" class="com.epbt2.mtkn.tanya.carianPnytaAkaunIndAction">
+            <result name="success">/mtknPertanyaan/PenyataAkaunIndividu.jsp</result>            
+        </action>
+        
+        <!-- JULY 21,2014 HAFIZ TARMIZI -->
+    
+        <!-- BYE 23/06/2016 -->
+          <!--action name="*carianLokasi" class="com.epbt2.mtkn.tanya.LokasiPerincianAction" method="{1}">
+            <result name="success">/mtknPertanyaan/CarianLokasiPerincian.jsp</result>
+        </action-->
+        
+        <!-- END JULY 21,2014 HAFIZ TARMIZI -->
+        
+        
+                <!-- Carian Tunggakan -->
+        <action name="*carianTunggakan" class="com.epbt2.mtkn.tanya.TunggakanAction" method="{1}">
+            <!-- <result name="list" type="redirect">carianHVhtgk</result> -->
+            <result name="success">/mtknPertanyaan/pmntauanTunggakan.jsp</result>
+            <!-- <result name="input">/mtknPemprosesan/BilCarBtuKdr.jsp</result> -->
+        </action>
+        <!-- Carian Tunggakan -->
+
+    </package>
+</struts>
+

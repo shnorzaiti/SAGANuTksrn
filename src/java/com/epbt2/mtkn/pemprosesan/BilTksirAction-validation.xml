@@ -1,0 +1,78 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+    "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>     
+    <field name="pilihan">
+        <field-validator type="requiredstring">
+            <message>Pilihan is required.</message>
+        </field-validator>
+    </field>   
+    <field name="akaunDr">
+        <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[(pilihan != "1") || (akaunDr != "")]]></param>
+            <message>No. Akaun is required.</message>
+        </field-validator>
+       <!-- <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>No. Akaun is required.</message>
+        </field-validator>-->
+    </field>    
+    <field name="akaunHgga">
+        <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[(pilihan != "1") || (akaunHgga != "")]]></param>
+            <message>No. Akaun is required.</message>
+        </field-validator>
+        <!--<field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>No. Akaun is required.</message>
+        </field-validator>-->
+    </field>  
+    <field name="jlnKod">
+        <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[(pilihan != "2") || (jlnKod != "")]]></param>
+            <message>Jalan is required.</message>
+        </field-validator>
+    </field>
+    <!-- <field name="jlnKod">        
+<field-validator type="fieldexpression">
+    <param name="expression"><![CDATA[pilihan.length > 0]]>-->
+    <!--<![CDATA[(#pilihan.equals("2"))]]>-->
+    <!-- </param>
+        <message>This is a mandatory field</message>
+    </field-validator>   -->     
+        
+    <!--<field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>jlnKod is required.</message>
+        </field-validator>
+    </field>-->
+    <field name="tarikhTksr">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"/>
+        </field-validator>
+    </field> 
+    <validator type="regex">
+        <param name="fieldName">tarikhTksr</param>
+        <param name="regex"><![CDATA[[0-9][0-9]/[0-9][0-9]/[1-9][0-9][0-9][0-9]]]></param>
+        <message key="errors.date"/>
+    </validator> 
+    <field name="tempohTksr">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"/>
+        </field-validator>
+    </field> 
+    <validator type="regex">
+        <param name="fieldName">tempohTksr</param>
+        <param name="regex"><![CDATA[[0-9][0-9]/[0-9][0-9]/[1-9][0-9][0-9][0-9]]]></param>
+        <message key="errors.date"/>
+    </validator>  
+    
+    
+
+   <!--  <validator type="fieldexpression">
+            <param name="fieldname">jlnKod</param>
+            <param name="expression"><![CDATA[pilihan == "2"]]></param>
+            <message>You must select at least one car model.</message>
+    </validator>-->
+</validators>

@@ -1,0 +1,48 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: ghani -->
+ 
+<struts>
+    <package name="common" namespace="/common" extends="struts-default">
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" default="true"/>
+        </result-types>
+        <interceptors>
+            <interceptor name="authentication"
+                         class="com.epbt2.interceptors.AuthenticationInterceptor">
+            </interceptor>
+            <interceptor-stack name="authStack">
+                <interceptor-ref name="authentication"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>        
+        <default-interceptor-ref name="authStack"></default-interceptor-ref>
+        
+        <global-results>
+            <result name="error">/error.jsp</result>
+            <result name="login" type="redirect">/logOutUser</result>
+        </global-results>
+        
+        <action name="welcome">
+            <result name="success" type="tiles">welcome.tiles</result>
+        </action>         
+        <!-- BYE 23/06/2016 -->
+        <action name="welcome2">
+            <!--result name="success" type="tiles">welcome2.tiles</result-->
+            <result name="success" type="redirect">/common/Redirect2?url=ePBT_EIS.common.2Frame01_taksiran </result>
+        </action>     
+        <action name="Redirect2" class="com.epbt2.common.URLAction">
+            <!--<interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success" type="redirect">${url}</result>-->
+            <result name="success" type="tiles">externalLayout2</result>
+        </action>    
+        <!-- BYE 23/06/2016 -->  
+        <!--- MENU LOGIN -->
+       <!-- <action name="Redirect" class="com.epbt2.common.URLAction">
+            <result name="success" type="tiles">externalLayout</result>
+        </action>-->
+        <!--- MENU LOGIN -->  
+    </package>
+</struts>

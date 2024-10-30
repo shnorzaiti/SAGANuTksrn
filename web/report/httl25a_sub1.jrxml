@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="httl25a_sub1" language="groovy" pageWidth="150" pageHeight="595" orientation="Landscape" columnWidth="150" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f5ae1be7-d8a8-4963-91bf-690ef5fc3c5d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="param1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select sum(a.amaun) amaun
+from (
+select 	sum(nvl(htx_amaun,0)) amaun
+from   	mtkn.hlpgng, mtkn.hlhtrx
+where 	peg_akaun = htx_akaun and
+	peg_statf not in ('H','D') and peg_htkod = $P{param1}
+group by 	peg_htkod, peg_akaun
+having 	sum(nvl(htx_amaun,0)) > 0
+) a]]>
+	</queryString>
+	<field name="AMAUN" class="java.math.BigDecimal"/>
+	<variable name="JBAMAUN" class="java.math.BigDecimal" resetType="None">
+		<variableExpression><![CDATA[$F{AMAUN}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="2" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="16">
+			<textField pattern="#,##0.00;(-#,##0.00)">
+				<reportElement x="0" y="1" width="150" height="15" uuid="f19a1586-972d-4306-a714-d9b118bc1905"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Arial" size="8" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{AMAUN} != null) ? $F{AMAUN} : 0.00]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

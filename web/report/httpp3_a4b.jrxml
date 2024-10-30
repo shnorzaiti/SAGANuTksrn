@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="httpp3_a4b" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="645bea0b-6d0a-4c7c-86d9-20e49b4e750b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="207"/>
+	<style name="Header" fontName="Arial" fontSize="10" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Detail" forecolor="#000000" hAlign="Left" vAlign="Top" fontName="Arial" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<queryString>
+		<![CDATA[select * from dual]]>
+	</queryString>
+	<field name="DUMMY" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement style="Header" x="241" y="10" width="73" height="16" uuid="c0b17290-01ff-45e5-924d-40c703fc1bb8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[KENYATAAN]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement style="Detail" x="0" y="0" width="555" height="29" uuid="f73c8266-901d-445c-b88a-d44cced8e6d8"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[1. Jumlah wang yang kena dibayar bagi setengah tahun pertama hendaklah sebelum 28 FEBRUARI dan bagi setengah tahun kedua hendaklah dibayar sebelum 31hb OGOS pada tahun yang berkenaan.( Bah. XV.S.17(i)Akta 171)]]></text>
+			</staticText>
+		</band>
+		<band height="82">
+			<staticText>
+				<reportElement style="Detail" x="0" y="0" width="555" height="43" uuid="47ef4b3c-715c-4a28-af54-68ca493ab0ef"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[2. Jika mana-mana jumlah wang itu atau mana-mana bahagiannya seperti (1) masih terhutang dan belum dibayar sehingga tarikh akhir bulan Februari atau hingga suku bukan Ogos dalam tiap-tiap tahun mengikut mana yang berkenaan, jumlah wang itu hendaklah disifatkan sebagai suatu tunggakan dan boleh dituntut bersama bayaran notis yang ditetapkan.]]></text>
+			</staticText>
+		</band>
+		<band height="194">
+			<staticText>
+				<reportElement style="Detail" x="0" y="0" width="268" height="20" uuid="16426c8d-6117-442d-a239-ea3e983302c3"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[3. Kadar Bayaran Notis (Borang E) adalah seperti berikut :-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Detail" x="46" y="20" width="100" height="17" uuid="9468ce57-fb70-49ca-877d-b88571e2b0ec"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah Tunggakan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Detail" x="0" y="37" width="188" height="20" uuid="6743849a-4595-4841-ab81-d5f6ae162440"/>
+				<text><![CDATA[a) Kurang daripada RM100.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Detail" x="0" y="56" width="188" height="20" uuid="50b44a33-efc1-4afa-b9d6-60faf00c7f5d"/>
+				<text><![CDATA[b) Melebihi RM100.00 hingga RM250.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Detail" x="0" y="75" width="188" height="20" uuid="48a2ead0-ebd0-4523-9a09-50e7f3be7378"/>
+				<text><![CDATA[c) Melebihi RM250.00 hingga RM600.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Detail" x="0" y="94" width="188" height="20" uuid="a0a74198-cc98-432a-bb36-753db6cebd79"/>
+				<text><![CDATA[c) Melebihi jumlah RM600.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Detail" x="214" y="20" width="100" height="17" uuid="0e5fe37d-7af7-4e4b-8786-8c524d19565f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Bayaran Notis Dikenakan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="37" width="188" height="20" uuid="4435eb8f-f4e3-4e98-8da7-727d1bd39c1e"/>
+				<text><![CDATA[RM4.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="56" width="188" height="20" uuid="e5fbebde-2aa6-4e7a-8b77-24973666f3db"/>
+				<text><![CDATA[RM8.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="75" width="188" height="20" uuid="3e22a52d-c2a6-4540-934d-1112f55bdd65"/>
+				<text><![CDATA[RM12.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="94" width="327" height="20" uuid="6dbc4701-b59a-4c5d-bac7-eb309fc80ac3"/>
+				<text><![CDATA[RM2.00 bagi setiap tambahan RM100.00 atau sebahagian daripadanya]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Detail" x="0" y="126" width="555" height="44" uuid="035b55d3-a518-4745-9fcc-05aaab2a4e27"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[4. Untuk menuntut sesuatu tunggakan, Majlis boleh mengeluarkan Waran Tahanan (kos tahanan akan dibiayai oleh pemilik harta) dan boleh mensita menurut waran itu apa-apa harta alih kepunyaan pemunya atau penduduk yang bertanggungjawab membayarnya (Bah XV.S. 148 Akta 171).]]></text>
+			</staticText>
+		</band>
+		<band height="130">
+			<staticText>
+				<reportElement style="Detail" x="0" y="0" width="314" height="20" uuid="2525cb95-3df9-40f3-afc3-3aea8b671164"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[5. Kos tahanan (Borang F) yang dikenakan adalah seperti berikut :-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Detail" x="46" y="20" width="98" height="16" uuid="c3f18283-a257-40f5-a9c2-b30d945d4445"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah Tunggakan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="46" width="188" height="20" uuid="9ff6b605-c4b8-4754-bf33-8192436cfaf3"/>
+				<text><![CDATA[a) Tidak melebihi RM1,000.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="65" width="188" height="20" uuid="7e3af930-cd4f-40ed-abe9-38ea8f849a25"/>
+				<text><![CDATA[b) Melebihi RM1,000.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Detail" x="214" y="20" width="98" height="16" uuid="778a1415-fb0a-4957-9568-9b52c9232f8f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Bayaran Notis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="46" width="341" height="20" uuid="73d56934-95b2-45e7-b6c3-5710c5e33d05"/>
+				<text><![CDATA[10% daripada amaun tunggakan tertakluk kepada minima RM10.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="65" width="341" height="20" uuid="3bacad59-f069-4075-b9ab-829fa77fce84"/>
+				<text><![CDATA[15% daripada amaun tunggakan]]></text>
+			</staticText>
+		</band>
+		<band height="94">
+			<staticText>
+				<reportElement style="Detail" x="0" y="0" width="227" height="16" uuid="406f4748-bb7c-426c-ad60-3b0223b012c3"/>
+				<text><![CDATA[6. Waktu kutipan pejabat adalah seperti berikut :-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Detail" x="0" y="31" width="100" height="18" uuid="c63b831f-5fac-4d37-bd05-b2c4043dce6e"/>
+				<text><![CDATA[Hari Isnin - Jumaat :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Detail" x="114" y="31" width="288" height="18" uuid="a176941c-dbac-4e6a-9f84-beeb9536ddfc"/>
+				<text><![CDATA[8.00 pagi hingga 3.30 petang]]></text>
+			</staticText>
+		</band>
+		<band height="80">
+			<staticText>
+				<reportElement style="Detail" x="0" y="0" width="555" height="47" uuid="68ec6ec6-da3d-4ff4-9347-75b026e9cf34"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[7. Pemilik-pemilik adalah diwajibkan memberitahu jabatan di atas penukaran alamat surat menyurat dan penukaran hakmilik bagi harta-harta yang termasuk dalam kawasan Majlis Daerah dengan mengisi "Borang 1" dan Borang Penukaran Alamat yang boleh didapati di Jabatan Penilaian, Majlis Daerah.]]></text>
+			</staticText>
+		</band>
+		<band height="55">
+			<staticText>
+				<reportElement style="Detail" x="0" y="0" width="555" height="40" uuid="c9066e07-e5f6-46f6-b046-16747ca30c5c"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[8. Sekiranya tuan/puan tidak menerima bil asal, sila datang ke Jabatan Penilaian Majlis Daerah untuk mengambil salinannya bagi membuat pembayaran Cukai Taksiran.]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

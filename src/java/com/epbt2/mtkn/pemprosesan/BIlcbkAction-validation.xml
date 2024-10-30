@@ -1,0 +1,31 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+    "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>     
+    <field name="jabt.jabJbkod">
+        <field-validator type="requiredstring">
+            <message>Jabatan is required.</message>
+        </field-validator>
+    </field>  
+    <field name="tarikhCBK">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"/>
+        </field-validator>
+    </field> 
+    <validator type="regex">
+        <param name="fieldName">tarikhCBK</param>
+        <param name="regex"><![CDATA[[0-9][0-9]/[0-9][0-9]/[1-9][0-9][0-9][0-9]]]></param>
+        <message key="errors.date"/>
+    </validator> 
+    <field name="tempohCBK">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="errors.required"/>
+        </field-validator>
+    </field> 
+    <validator type="regex">
+        <param name="fieldName">tempohCBK</param>
+        <param name="regex"><![CDATA[[0-9][0-9]/[0-9][0-9]/[1-9][0-9][0-9][0-9]]]></param>
+        <message key="errors.date"/>
+    </validator>  
+</validators>

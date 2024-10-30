@@ -1,0 +1,24 @@
+.thumbnail{
+    padding:0;
+}
+.menu-icon{
+    padding:10px;
+    background:#efefef;
+    font-size: 30px;
+    text-align:center;
+    color:#424A5D;   
+    & .badge-notify{
+        background:red;
+        position:relative;
+        top: -40px;
+        left: -20px;
+    }
+}
+.system-title{
+    padding: 9px;
+    color: #333333;
+    & h4{
+        text-align: center;
+        font-weight:600;
+    }
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="htts21_sub5" language="groovy" pageWidth="300" pageHeight="595" orientation="Landscape" columnWidth="300" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1fc2dbda-6110-428d-8766-8dc2bef4b3d1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\ireport\\mtkn\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="akaun" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select pyt_akaun akaun1, trx_level level1, trx_itkod itkod1, trx_inama inama1,
+       nvl(pyt_amaun,0) amaun12040
+from mtkn.hlpnyt, spbt.trxkod
+where pyt_kdrjk = trx_itkod
+and pyt_kdrjk = '12040'
+and trx_modin = 'T'
+and nvl(pyt_amaun,0) != 0
+and pyt_akaun = $P{akaun}
+order by trx_level]]>
+	</queryString>
+	<field name="AKAUN1" class="java.math.BigDecimal"/>
+	<field name="LEVEL1" class="java.lang.String"/>
+	<field name="ITKOD1" class="java.lang.String"/>
+	<field name="INAMA1" class="java.lang.String"/>
+	<field name="AMAUN12040" class="java.math.BigDecimal"/>
+	<variable name="amaun12040" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{AMAUN12040}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="906a5c8b-d99a-4938-9413-ec0acfa0f78a" x="38" y="0" width="162" height="15"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="8"/>
+					<paragraph leftIndent="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INAMA1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f637b59f-8859-4a74-8f1e-4d766acc29cb" x="1" y="0" width="34" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ITKOD1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(-#,##0.00)" isBlankWhenNull="true">
+				<reportElement uuid="dbe100a1-cc21-4c9b-aeea-f27906aed7e2" x="200" y="0" width="80" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{AMAUN12040} != null) ? $F{AMAUN12040} : "0.00"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

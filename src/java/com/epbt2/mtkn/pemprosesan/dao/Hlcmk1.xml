@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE daogen-metadata>
+
+<daogen-metadata>
+   <version>2.4.1</version>
+   <timestamp>05.08.2014</timestamp>
+
+   <tableName>MTKN.HLCMK1</tableName>
+   <className>MTKN.HLCMK1</className>
+   <language>java</language>
+   <database>oracle</database>
+   <useCache>false</useCache>
+   <classPackage>com.epbt2.mtkn.pemprosesan.dao</classPackage>
+   <columns>
+      <dbColumn PK="true" colType="String" colName="CM1_JBKOD" varName="cm1Jbkod" 
+      automatic="false" valueSource="" indexed="true" colLength="10" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="true" colType="String" colName="CM1_NOBIL" varName="cm1Nobil" 
+      automatic="false" valueSource="" indexed="true" colLength="10" orderLevel="1" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="CM1_TKHBL" varName="cm1Tkhbl" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="CM1_TMPOH" varName="cm1Tmpoh" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="String" colName="CM1_STATF" varName="cm1Statf" 
+      automatic="false" valueSource="" indexed="false" colLength="255" orderLevel="0" orderType="ASC" />
+
+   </columns>
+</daogen-metadata>

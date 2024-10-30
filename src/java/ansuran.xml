@@ -1,0 +1,58 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="ansuran" namespace="/ansuran" extends="struts-default">
+        <result-types>
+            <result-type name="tiles"
+                         class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>                    
+        <!-- INTERCEPTOR -->
+        <interceptors>
+            <interceptor name="authentication"
+                         class="com.epbt2.interceptors.AuthenticationInterceptor">
+            </interceptor>
+            <interceptor-stack name="authStack">
+                <interceptor-ref name="authentication"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>        
+        <default-interceptor-ref name="authStack"></default-interceptor-ref>
+        <!-- INTERCEPTOR -->
+        <global-results>
+            <result name="error">/error.jsp</result>
+            <result name="login" type="redirect">/logOutUser</result>
+        </global-results>
+    
+        <action name="*Link" class="com.epbt2.common.LinkAction">
+            <result name="success" type="tiles">${directory}.{1}.tiles</result>
+        </action>     
+        <!-- BYE 01/08/2016 -->  
+        <action name="*Link2" class="com.epbt2.common.LinkAction">
+            <result name="success" type="tiles">${directory}.{1}.tiles2</result>
+        </action>    
+        <!-- BYE 01/08/2016 -->   
+        <action name="ansuranList" class="com.epbt2.mtkn.ansuran.AnsuranListAction">
+            <result name="success">/mtknAnsuran/ListAnsuran.jsp</result>
+        </action>
+        <action name="*Ansuran" class="com.epbt2.mtkn.ansuran.AnsuranAction" method="{1}">
+            <result name="list" type="redirect">findAnsuranList</result>
+            <result name="info" type="dispatcher">Info</result>
+            <result name="success">/mtknAnsuran/MklumatAnsuran.jsp</result>
+        </action>        
+        <action name="*Manual" class="com.epbt2.mtkn.ansuran.AnsuranAction" method="{1}">
+            <result name="list" type="redirect">findAnsuranList</result>
+            <result name="info" type="dispatcher">Info</result>
+            <result name="success">/mtknAnsuran/MklumatAnsuranManual.jsp</result>
+        </action>              
+        <action name="*Info" class="com.epbt2.mtkn.ansuran.AnsuranAction" method="{1}">
+            <result name="list" type="redirect">findAnsuranList</result>
+            <result name="success">/mtknAnsuran/MklumatAnsuranInfo.jsp</result>
+        </action>        
+        <!--action name="Akaun" class="com.epbt2.mtkn.common.AkaunAction">
+            <result name="success">/mtknUmum/dialogAkaun.jsp</result>
+        </action-->
+    </package>
+</struts>
+

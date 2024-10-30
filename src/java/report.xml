@@ -1,0 +1,34 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: ghani -->
+<!--struts>
+    <package name="report" namespace="/report" extends="struts-default,jasperreports-default">                
+        <action name="cetak" class="com.epbt2.report.ReportAction">
+            <result name="success" type="jasper">
+                <param name="location">${reportName}</param>
+                <param name="connection">conn</param>
+                <param name="format">PDF</param>
+                <param name="reportParameters">reportParams</param>
+                <param name="documentName">${documentName}</param>
+            </result>
+        </action>
+    </package>
+</struts-->
+
+<struts>
+    <package name="report" namespace="/report" extends="struts-default,jasperreports-default">        
+        <action name="cetak" class="com.epbt2.report.ReportAction">
+            <result name="success" type="jasper">
+                <!--<param name="location">/report/pindahInduk.jasper</param>-->
+                <param name="location">${reportName}</param>
+                <param name="connection">conn</param>
+                <param name="format">${reportFormat}</param>
+                <param name="reportParameters">reportParams</param>
+                <!--<param name="imageServletUrl">/servlet/images</param>-->
+                <param name="documentName">${documentName}</param>
+            </result>
+        </action>
+    </package>
+</struts>

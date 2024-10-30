@@ -1,0 +1,97 @@
+@import "colors";
+@import "extends";
+/*------------------------------------*\
+    #HELPERS-PROPERTIES
+\*------------------------------------*/
+/**
+ * HORIZONTAL RULE-HELPERS
+ */
+
+hr {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 0;
+	border-top: 1px solid $color_boulder_approx;
+}
+/**
+ * ALIGNMENT-HELPERS
+ */
+
+.centered {
+	text-align: center;
+}
+.goleft {
+	text-align: left;
+}
+.goright {
+	text-align: right;
+}
+/**
+ * MARGINAL-HELPERS
+ */
+
+.mt {
+	margin-top: 25px;
+}
+.mb {
+	margin-bottom: 25px;
+}
+.ml {
+	margin-left: 5px;
+}
+.no-margin {
+	margin: 0 !important;
+}
+/**
+ * PADDING-HELPERS
+ */
+
+.no-padding {
+	padding: 0 !important;
+}
+/**
+ * DISPLAY-HELPERS
+ */
+
+.block{
+    display:block;
+}
+.inline-block {
+	display: inline-block;
+}
+.none{
+    display:none;
+}
+/**
+ * BG COLOR-HELPERS
+ */
+.bg-theme {
+	background-color: $color_turquoise_blue_approx;
+}
+.bg-theme02 {
+	background-color: $color_dull_lavender_approx;
+}
+.bg-theme03 {
+	background-color: $color_puerto_rico_approx;
+}
+.bg-theme04 {
+	background-color: $color_mandy_approx;
+}
+.label-theme {
+	background-color: $color_turquoise_blue_approx;
+}
+/**
+ * TOGGLE COLOR-HELPERS
+ */
+#toggle {
+	color: #424A5D;
+}
+#toggle2 {
+	color: #424A5D;
+}
+#toggle3 {
+	color: #424A5D;
+}
+#toggle4 {
+	color: #424A5D;
+}

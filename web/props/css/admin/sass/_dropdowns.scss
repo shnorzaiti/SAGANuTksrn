@@ -1,0 +1,22 @@
+@import "extends";
+@import "colors";
+.open .dropdown-toggle {
+	&.btn-theme {
+		@extend %extend_1;
+	}
+	&.btn-theme02 {
+		@extend %extend_2;
+	}
+	&.btn-theme03 {
+		@extend %extend_3;
+	}
+	&.btn-theme04 {
+		@extend %extend_4;
+	}
+	&.btn-facebook {
+		@extend %extend_8;
+	}
+	&.btn-twitter {
+		@extend %extend_9;
+	}
+}

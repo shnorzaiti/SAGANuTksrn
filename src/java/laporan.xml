@@ -1,0 +1,232 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: ShahRizal -->
+ 
+<struts>
+    <package name="laporan" namespace="/laporan" extends="struts-default,json-default">
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>                    
+        <!-- INTERCEPTOR -->
+        <interceptors>
+            <interceptor name="authentication"
+                         class="com.epbt2.interceptors.AuthenticationInterceptor">
+            </interceptor>
+            <interceptor-stack name="authStack">
+                <interceptor-ref name="authentication"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>        
+        <default-interceptor-ref name="authStack"></default-interceptor-ref>
+        <!-- INTERCEPTOR -->
+        <global-results>
+            <result name="error">/error.jsp</result>
+            <result name="login" type="redirect">/logOutUser</result>
+        </global-results>
+    
+        <action name="*Link" class="com.epbt2.common.LinkAction">
+            <result name="success" type="tiles">${directory}.{1}.tiles</result>
+        </action>       
+        <!-- BYE 05/10/2016 -->  
+        <action name="*Link2" class="com.epbt2.common.LinkAction">
+            <result name="success" type="tiles">${directory}.{1}.tiles2</result>
+        </action>    
+        <!-- BYE 05/10/2016 --> 
+        
+        <!-- BYE 05/11/2016 --> 
+        <action name="2Frame*" class="com.epbt2.common.MenuLoginAction">
+            <result name="success" type="tiles">2frame.${directory}.{1}</result>
+            <interceptor-ref name="basicStack"/>
+        </action>
+        <!-- BYE 05/11/2016 --> 
+        
+        <action name="*SalinanNotisE" class="com.epbt2.mtkn.laporan.salinanNotisEAction" method="{1}">
+            <result name="success">/mtknLaporan/salinanNotisE.jsp</result>
+        </action>
+        
+        <action name="*BorangG" class="com.epbt2.mtkn.laporan.borangGAction" method="{1}">
+            <result name="success">/mtknLaporan/borangG.jsp</result>
+        </action>
+        
+        <action name="*BorangH" class="com.epbt2.mtkn.laporan.borangHAction" method="{1}">
+            <result name="success">/mtknLaporan/borangH.jsp</result>
+        </action>
+        
+        <action name="*MakHutangCarum" class="com.epbt2.mtkn.laporan.MakHutangCarumAction" method="{1}">
+            <result name="success">/mtknLaporan/makHutangCarum.jsp</result>
+        </action>
+        
+        <action name="*MakHutangJln" class="com.epbt2.mtkn.laporan.MakHutangJlnAction" method="{1}">
+            <result name="success">/mtknLaporan/makHutangJln.jsp</result>
+        </action>
+        
+        <action name="*SenaraiSyarikatTertunggak" class="com.epbt2.mtkn.laporan.SenSyrktTunggakAction" method="{1}">
+            <result name="success">/mtknLaporan/senSyrktTunggak.jsp</result>
+        </action>
+        
+        <action name="*SalinanWaranF" class="com.epbt2.mtkn.laporan.salinanWaranFAction" method="{1}">
+            <result name="success">/mtknLaporan/salinanWaranF.jsp</result>
+        </action>
+        
+        <action name="*AnalisaByrTarikhJln" class="com.epbt2.mtkn.laporan.analisaByrTarikhJlnAction" method="{1}">
+            <result name="success">/mtknLaporan/analisaByrTarikhJln.jsp</result>
+        </action>
+        
+        <action name="*BilTaksirMJP" class="com.epbt2.mtkn.laporan.bilTaksirMJPAction" method="{1}">
+            <result name="success">/mtknLaporan/bilTaksirMJP.jsp</result>
+        </action>
+        
+        <action name="*SenKutipanHarian" class="com.epbt2.mtkn.laporan.senKutipanHarianAction" method="{1}">
+            <result name="success">/mtknLaporan/senKutipanHarian.jsp</result>
+        </action>
+        
+        <action name="*StatPegHutang" class="com.epbt2.mtkn.laporan.statPegHutangAction" method="{1}">
+            <result name="success">/mtknLaporan/statPegHutang.jsp</result>
+        </action>
+        
+        <action name="*PenyataAkaunInv" class="com.epbt2.mtkn.laporan.penyataAkaunInvAction" method="{1}">
+            <result name="success">/mtknLaporan/penyataAkaunInv.jsp</result>
+        </action>
+        
+        <action name="*SuratTunggakCukai" class="com.epbt2.mtkn.laporan.suratTunggakCukaiAction" method="{1}">
+            <result name="success">/mtknLaporan/suratTunggakCukai.jsp</result>
+        </action>
+        
+        <action name="*NotisE" class="com.epbt2.mtkn.laporan.notisEAction" method="{1}">
+            <result name="success">/mtknLaporan/notisE.jsp</result>
+        </action>
+        
+        <action name="*WaranF" class="com.epbt2.mtkn.laporan.waranFAction" method="{1}">
+            <result name="success">/mtknLaporan/waranF.jsp</result>
+        </action>
+        
+        <action name="*MakHtgPemilik" class="com.epbt2.mtkn.laporan.MakHtgPemilikAction" method="{1}">
+            <result name="success">/mtknLaporan/makHtgPemilik.jsp</result>
+        </action>
+        
+        <action name="*KirimanBil" class="com.epbt2.mtkn.laporan.kirimanBilAction" method="{1}">
+            <result name="success">/mtknLaporan/kirimanBil.jsp</result>
+        </action>
+        
+        <action name="*AnalisaPengumuranHarian" class="com.epbt2.mtkn.laporan.analisaPengumuranHarianAction" method="{1}">
+            <result name="success">/mtknLaporan/analisaPengumuranHarian.jsp</result>
+        </action>
+        
+        <action name="*BilCukaiTaksir" class="com.epbt2.mtkn.laporan.bilCukaiTaksirAction" method="{1}">
+            <result name="success">/mtknLaporan/BilCukaiTaksir.jsp</result>
+        </action>
+        
+        <action name="*BilPegangHapus" class="com.epbt2.mtkn.laporan.bilPegangHapusAction" method="{1}">
+            <result name="success">/mtknLaporan/bilPegangHapus.jsp</result>
+        </action>
+        
+        <action name="*CarumanBantuKadar" class="com.epbt2.mtkn.laporan.carumanBantuKadarAction" method="{1}">
+            <result name="success">/mtknLaporan/carumanBantuKadar.jsp</result>
+        </action>
+        
+        <action name="*NotisEBilHari" class="com.epbt2.mtkn.laporan.notisEBilHariAction" method="{1}">
+            <result name="success">/mtknLaporan/notisEBilHari.jsp</result>
+        </action>
+        
+        <action name="*SenaraiTahunan" class="com.epbt2.mtkn.laporan.senaraiTahunanAction" method="{1}">
+            <result name="success">/mtknLaporan/senaraiTahunan.jsp</result>
+        </action>
+        
+        <action name="*MakHutangSemasaPegangan" class="com.epbt2.mtkn.laporan.makHutangSemasaPeganganAction" method="{1}">
+            <result name="success">/mtknLaporan/makHutangSemasaPegangan.jsp</result>
+        </action>
+        
+        <action name="*PengumuranThunan" class="com.epbt2.mtkn.laporan.pengumuranThunanAction" method="{1}">
+            <result name="success">/mtknLaporan/pengumuranThunan.jsp</result>
+        </action>
+        
+        <action name="*PemilikHutangAmaunTmph" class="com.epbt2.mtkn.laporan.PemilikHutangAmaunTmphAction" method="{1}">
+            <result name="success">/mtknLaporan/pemilikHutangAmaunTmph.jsp</result>
+        </action>
+        
+        <!--action name="*PemilikHutangAmaunTmph" class="com.epbt2.mtkn.laporan.pengumuranThunanAction" method="{1}">
+            <result name="success">/mtknLaporan/pemilikHutangAmaunTmph.jsp</result>
+        </action-->
+        
+        <action name="*PeganganTerMJP" class="com.epbt2.mtkn.laporan.terlibatMJPAction" method="{1}">
+            <result name="success">/mtknLaporan/terlibatDenganMJP.jsp</result>
+        </action>
+        
+        <action name="*LapRingkasCTaksir" class="com.epbt2.mtkn.laporan.lapRingkasCTaksirAction" method="{1}">
+            <result name="success">/mtknLaporan/lapRingkasCTaksir.jsp</result>
+        </action>
+        
+        <action name="*HutangSemasa" class="com.epbt2.mtkn.laporan.makHutangSemasaPeganganAction" method="{1}">
+            <result name="success">/mtknLaporan/makHutangSemasaPegangan.jsp</result>
+        </action>
+        
+        <action name="*Kawalan" class="com.epbt2.mtkn.laporan.KawalanBilCtaAction" method="{1}">
+            <result name="success">/mtknLaporan/KawalanBilCta.jsp</result>
+        </action>
+        
+        <action name="*AnalisaBayarPegangan" class="com.epbt2.mtkn.laporan.AnalisaBayarPeganganAction" method="{1}">
+            <result name="success">/mtknLaporan/AnalisaBayarPegangan.jsp</result>
+        </action>
+        
+        <action name="*PenyataTunggakCBK" class="com.epbt2.mtkn.laporan.PenyataTunggakCBKAction" method="{1}">
+            <result name="success">/mtknLaporan/PenyataTunggakCBK.jsp</result>
+        </action>
+        
+        <action name="*MakHutangBayarCBK" class="com.epbt2.mtkn.laporan.MakHutangBayarCBKAction" method="{1}">
+            <result name="success">/mtknLaporan/MakHutangBayarCBK.jsp</result>
+        </action>
+        <action name="*MesejBil" class="com.epbt2.mtkn.common.MesejBilAction" method="{1}">
+            <result name="success">/mtknLaporan/mesejBil.jsp</result>
+        </action> 
+        
+        <action name="*Penyesuaian" class="com.epbt2.mtkn.laporan.PenyesuaianAction" method="{1}">
+            <result name="success">/mtknLaporan/penyesuaianTaksiran.jsp</result>
+        </action>
+
+        <!-- <action name="*TerlibatDenganMJP" class="com.epbt2.mtkn.laporan.terlibatDenganMJPAction" method="{1}">
+            <result name="success">/mtknLaporan/terlibatDenganMJP.jsp</result>
+        </action>-->
+        
+        <!--Popup Action-->
+        <!-- Popup Akaun--> 
+        <!--action name="popJlkod" class="com.epbt2.mtkn.common.JalanPopAction">
+            <result name="success">/mtknUmum/dialogJalan.jsp</result>
+        </action-->
+        <!--action name="popJlkodHg" class="com.epbt2.mtkn.common.JalanPopAction">
+            <result name="success">/mtknUmum/dialogJalanHg.jsp</result>
+        </action-->
+        
+        <!-- Popup Jabatan--> 
+        <action name="popJbtn" class="com.epbt2.mtkn.common.JbtnPopAction">
+            <result name="success">/mtknUmum/dialogJbtn.jsp</result>
+        </action>
+        <action name="popJbtnHg" class="com.epbt2.mtkn.common.JbtnPopAction">
+            <result name="success">/mtknUmum/dialogJbtnHg.jsp</result>
+        </action>
+        
+        <!-- Popup Akaun--> 
+        <!--action name="popAkaun" class="com.epbt2.mtkn.common.AkaunPopAction">
+            <result name="success">/mtknUmum/dialogKodAkaun.jsp</result>
+        </action>
+        <action name="popAkaunHg" class="com.epbt2.mtkn.common.AkaunPopAction">
+            <result name="success">/mtknUmum/dialogKodAkaunHg.jsp</result>
+        </action-->
+        
+                
+        <!-- Json CBK-->                     
+        <action name="MaklCBKJson" class="com.epbt2.mtkn.laporan.MaklCBKJsonAction">
+            <result type="json"/>
+        </action>
+        
+        <action name="popPoskod" class="com.epbt2.mtkn.common.LovPoskodAction">
+            <result name="success">/mtknUmum/dialogPoskod.jsp</result>
+        </action>
+        
+        <action name="*MohonKaveat" class="com.epbt2.mtkn.laporan.KaveatMohonAction" method="{1}">
+            <result name="success">/mtknLaporan/kaveatMohon.jsp</result>
+        </action>
+    </package>
+</struts>
+

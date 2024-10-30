@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="httl35" language="groovy" pageWidth="595" pageHeight="860" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="219a788b-8c4d-4ee7-82be-f9639441f9b5">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Working Folder\\ePBT\\NuTksrn\\web\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PARAM1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PARAM2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PARAM3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PARAM4" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PARAM5" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PARAM6" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PARAM7" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PARAM8" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USERID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select  bkaun, jlkod, akaun, nmbil, adpk1, adpk2, adpk3, nilth, brtnb,
+       jnama, htkod, hnama, ctsir, tngak, aging, thun0, thun1, thun4,
+       thun6, aging,
+(select para_value from spbt.std_sys_param where  para_id = 1) majlis
+from irep.mtkn_httl36
+where  akaun between $P{PARAM1} and $P{PARAM2}
+and jlkod between $P{PARAM3} and $P{PARAM4}
+and htkod between $P{PARAM5} and $P{PARAM6}
+and tngak between $P{PARAM7} and $P{PARAM8}
+order by bkaun]]>
+	</queryString>
+	<field name="BKAUN" class="java.lang.String"/>
+	<field name="JLKOD" class="java.math.BigDecimal"/>
+	<field name="AKAUN" class="java.math.BigDecimal"/>
+	<field name="NMBIL" class="java.lang.String"/>
+	<field name="ADPK1" class="java.lang.String"/>
+	<field name="ADPK2" class="java.lang.String"/>
+	<field name="ADPK3" class="java.lang.String"/>
+	<field name="NILTH" class="java.math.BigDecimal"/>
+	<field name="BRTNB" class="java.lang.String"/>
+	<field name="JNAMA" class="java.lang.String"/>
+	<field name="HTKOD" class="java.math.BigDecimal"/>
+	<field name="HNAMA" class="java.lang.String"/>
+	<field name="CTSIR" class="java.math.BigDecimal"/>
+	<field name="TNGAK" class="java.math.BigDecimal"/>
+	<field name="AGING" class="java.math.BigDecimal"/>
+	<field name="THUN0" class="java.math.BigDecimal"/>
+	<field name="THUN1" class="java.math.BigDecimal"/>
+	<field name="THUN4" class="java.math.BigDecimal"/>
+	<field name="THUN6" class="java.math.BigDecimal"/>
+	<field name="MAJLIS" class="java.lang.String"/>
+	<variable name="jum_nilth" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{NILTH}]]></variableExpression>
+	</variable>
+	<variable name="jum_ctaksir" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{CTSIR}]]></variableExpression>
+	</variable>
+	<variable name="jum_jhutang" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGAK}]]></variableExpression>
+	</variable>
+	<variable name="jum_amaun1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{THUN0}]]></variableExpression>
+	</variable>
+	<variable name="jum_amaun2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{THUN1}]]></variableExpression>
+	</variable>
+	<variable name="jum_amaun3" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{THUN4}]]></variableExpression>
+	</variable>
+	<variable name="jum_amaun4" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{THUN6}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<textField pattern="">
+				<reportElement uuid="ebd5662e-c373-43a4-9df4-a4cc4974aa6a" x="24" y="29" width="501" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Laporan Pengumuran Tahunan - Rosot Nilai (Amaun Tunggakan Dari "+$P{PARAM7}+" Hingga "+$P{PARAM8}+")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8e4a1c58-f24a-423c-920c-824f686d2d39" x="24" y="43" width="501" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Kod Jalan Dari "+$P{PARAM3}+" Hingga "+$P{PARAM4}+" Dan Kod Hartanah Dari "+$P{PARAM5}+" Hingga "+$P{PARAM6}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h:mm a" isBlankWhenNull="false">
+				<reportElement uuid="da0f239c-c3c2-44d6-b939-4352f12eb951" x="478" y="0" width="77" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="36fc22e6-dd80-449f-81ed-528e014b2015" x="417" y="14" width="80" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["M/Surat :     "+$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="874c68ff-06d6-464c-ae9b-fc6331964626" x="497" y="14" width="40" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2fd34ac1-0685-4051-954b-86c7e9862dbb" x="438" y="0" width="40" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tarikh :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f6e06bc4-34b3-48ff-af9a-3d586877c5bc" x="0" y="0" width="54" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HTTL36]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6701586e-1823-42c0-8ce7-1923e37d1112" x="0" y="14" width="54" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{USERID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="99f0aad4-f031-4ed1-b1da-380b5068617e" x="24" y="15" width="501" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MAJLIS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="57" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="279d4c29-adce-4e2c-b6c1-fa7da1785a2b" x="0" y="0" width="555" height="57" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="e4816319-96e1-46dd-8738-9f5b16bd0efb" x="0" y="0" width="41" height="15"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bil.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c68992f6-7bbf-4cbd-bb1f-c908b9f8a314" x="41" y="0" width="163" height="15"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Akaun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="790aa6c1-c3c4-413f-9157-db908a9554b5" x="41" y="14" width="163" height="15"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama & Alamat Pemilik]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9fbc117d-0155-4ba0-8844-81e2f254688d" x="228" y="14" width="68" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nilai Tahunan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5253af93-103c-453f-b61d-aef25cf596ac" x="228" y="0" width="68" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kadar Tahunan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2a09293d-ccc4-456d-afa0-b216e4a593eb" x="228" y="42" width="68" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hutang Terkini]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="08d5bd13-fa91-46b8-94c5-c99c2c160057" x="295" y="0" width="65" height="57"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tahun Semasa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3be7c7b9-8f43-4a2c-9e90-f9fcfd21bd7f" x="360" y="0" width="65" height="57"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1 Tahun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9a62bdf4-1162-449f-a1b9-74810a59b2b7" x="425" y="0" width="65" height="57"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2-6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b196b5e8-dad8-46f2-a1d0-01e9dc1f8668" x="490" y="0" width="65" height="57"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[>6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="334615cf-a418-495e-8c65-180b85a14f5c" x="228" y="28" width="68" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cukai Taksiran]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement uuid="4dfd2db2-9a09-4ab5-948c-04656b390af8" x="41" y="5" width="181" height="15"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BKAUN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0b8173ee-dc6f-4d4b-9257-16d733621506" x="41" y="19" width="181" height="15"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NMBIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="95d877c7-caf6-4bb4-808a-62fe9653a0b7" x="41" y="33" width="181" height="15"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADPK1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3d688e08-7f75-4392-96db-5bf14d5d81dd" x="41" y="47" width="181" height="15"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADPK2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="431c3d10-7881-431d-88aa-01926278a033" x="41" y="61" width="181" height="15"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADPK3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(-#,##0.00)">
+				<reportElement uuid="77c0f40c-ad4c-4ed3-be87-c66f4f0db6da" x="228" y="5" width="68" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BRTNB}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="12e304a6-92a5-4b6d-9b2e-351ca576c936" x="228" y="47" width="68" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TNGAK}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+				<reportElement uuid="bed38847-8d09-44ad-851c-cd2edfabd9d5" x="360" y="5" width="65" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{THUN1} == null ? '0.00':$F{THUN1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+				<reportElement uuid="1cfdf4be-3090-4bd3-a6cf-bcedf78d53d7" x="490" y="5" width="65" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{THUN6} == null ? '0.00':$F{THUN6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="55dc0ff1-6cbb-4b6d-91e7-9899485f39f8" x="0" y="5" width="41" height="15"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="5cd67b00-d513-49fe-95c3-8ff9bf74b2c1" x="228" y="19" width="68" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NILTH}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="4a0d745f-a89c-4700-b10b-c59892f8085a" x="228" y="33" width="68" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CTSIR}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+				<reportElement uuid="14647e2f-2042-4fd8-b780-7972d56ce27b" x="295" y="5" width="65" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{THUN0} == null ? '0.00' : $F{THUN0}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+				<reportElement uuid="f84b8b16-e87a-4008-845d-c4cf4757da1c" x="425" y="5" width="65" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{THUN4} == null ? '0.00':$F{THUN4}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="49">
+			<line>
+				<reportElement uuid="e5699e51-19eb-4351-b56e-aa875d8e045a" x="221" y="1" width="334" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="25d745b0-d7f7-4eb6-8ac9-93a57da571d9" x="83" y="4" width="135" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Jumlah Besar :]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e003e053-1b26-4753-a0c8-9715ab7de350" x="221" y="46" width="334" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="1ecbd8f5-92c7-4c96-91ce-02d6b8a1428f" x="228" y="32" width="68" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{jum_jhutang}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="16b79d84-45ee-46a0-8d6a-3a7405d8a8b2" x="228" y="4" width="68" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{jum_nilth}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="f4e70cf9-63bb-470e-8e8c-cf0e612fd83b" x="228" y="18" width="68" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{jum_ctaksir}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+				<reportElement uuid="2e88b17d-5654-416c-b10d-967e3da2dd51" x="295" y="4" width="65" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{jum_amaun1} == null ? '0.00' : $V{jum_amaun1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+				<reportElement uuid="7f4f4a1a-83be-489c-b76d-6c5acf4bdca3" x="425" y="4" width="65" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{jum_amaun3} == null ? '0.00':$V{jum_amaun3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+				<reportElement uuid="40f7c424-2784-46fc-89fd-e89fe32320ca" x="490" y="4" width="65" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{jum_amaun4} == null ? '0.00':$V{jum_amaun4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+				<reportElement uuid="131b6198-0881-42f9-8a11-95e50373c6cf" x="360" y="4" width="65" height="15"/>
+				<box rightPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{jum_amaun2} == null ? '0.00':$V{jum_amaun2}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="d264855e-dcd0-450b-bf54-df2070d26912" x="221" y="48" width="334" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

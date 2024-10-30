@@ -1,0 +1,47 @@
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="baseLayout" template="/baseLayout.jsp">
+        <put-attribute name="top" value="/info" />
+        <put-attribute name="menu" value="/menu" />
+        <put-attribute name="body" value="" />
+    </definition>
+    <definition name="welcome.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/welcome.jsp" />
+    </definition>
+    <definition name="/*.*.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/{1}/{2}" />   
+    </definition>
+    <definition name="iframeLayout" template="/iframeLayout.jsp">
+        <put-attribute name="body" value="" />
+    </definition>
+    <definition name="frame./*.*" extends="iframeLayout">
+        <put-attribute name="body" value="/{1}/{2}?layout=frame" />   
+    </definition>
+    <!-- BYE 13/06/2016 -->
+    <definition name="baseLayout2" template="/baseLayout2.jsp">  
+        <put-attribute name="top" value="/info2" />    
+        <put-attribute name="menu" value="/menu2" />      
+        <put-attribute name="body" value="" />
+    </definition>
+    <definition name="welcome2.tiles" extends="baseLayout2">
+        <put-attribute name="body" value="/welcome2.jsp" />
+    </definition>
+    <definition name="/*.*.tiles2" extends="baseLayout2">
+        <put-attribute name="body" value="/{1}/{2}" />   
+    </definition>
+    <!--definition name="iframe2Layout" template="/iframeLayout2.jsp">
+        <put-attribute name="body" value="" />
+    </definition-->
+    <definition name="2frame./*.*" template="/iframeLayout2.jsp">
+        <put-attribute name="body" value="/{1}/{2}?layout=frame" />   
+    </definition>
+    <!-- BYE 13/06/2016 -->
+    <!-- BYE 12/04/2017 -->
+    <definition name="externalLayout2" template="/externalLayout2.jsp">
+        <put-attribute name="top" value="/info2" />
+        <put-attribute name="menu" value="/menu2" />
+    </definition>
+    <!-- BYE 12/04/2017 -->
+</tiles-definitions>

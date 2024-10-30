@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sr_httpp6" language="groovy" pageWidth="320" pageHeight="130" columnWidth="320" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9d894626-4e07-42d1-b594-95f277e10388">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="akaun" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select nvl(a.htx_amaun,0) amun12,
+       a.htx_akaun htxakaun1,
+       b.trx_inama bnama1
+from   mtkn.hlhtrx a, spbt.trxkod b
+where  substr(a.htx_kdrjk,1,5) = b.trx_itkod
+and    substr(a.htx_kdrjk,1,5) in ('11010','12010')
+and    b.trx_modin = 'T'
+and    htx_akaun = $P{akaun}
+union all
+select nvl(sum(a.htx_amaun),0) amun12,
+       a.htx_akaun htxakaun1,
+       b.trx_inama bnama1
+from   mtkn.hlhtrx a, spbt.trxkod b
+where  substr(a.htx_kdrjk,1,5) = b.trx_itkod
+and    substr(a.htx_kdrjk,3,3) in ('020','030','040')
+and    b.trx_modin = 'T'
+and    htx_akaun = $P{akaun}
+group by a.htx_akaun, b.trx_inama
+union all
+select nvl(sum(a.htx_amaun),0) amun12,
+       a.htx_akaun htxakaun1,
+       b.trx_inama bnama1
+from   mtkn.hlhtrx a, spbt.trxkod b
+where  substr(a.htx_kdrjk,1,5) = b.trx_itkod
+and    ((substr(a.htx_kdrjk,1,5) = '11011' or substr(a.htx_kdrjk,1,5) = '11012')
+or     (substr(a.htx_kdrjk,1,5) = '12011' or substr(a.htx_kdrjk,1,5) = '12012'))
+and    b.trx_modin = 'T'
+and    htx_akaun = $P{akaun}
+group by a.htx_akaun, b.trx_inama]]>
+	</queryString>
+	<field name="AMUN12" class="java.math.BigDecimal"/>
+	<field name="HTXAKAUN1" class="java.math.BigDecimal"/>
+	<field name="BNAMA1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Immediate">
+			<textField>
+				<reportElement uuid="02e3aab2-c899-4a54-b2ac-26ea6d9a615b" x="0" y="0" width="209" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BNAMA1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(-#,##0.00)">
+				<reportElement uuid="51bcea1e-d11a-4a72-b86d-90f5a19a402a" x="209" y="0" width="100" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AMUN12}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Immediate"/>
+	</summary>
+</jasperReport>

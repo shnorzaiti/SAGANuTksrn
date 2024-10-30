@@ -1,0 +1,1524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="httl30" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b7aa3b5-b450-49ed-abcf-ab8ab04bcd9d">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="onama" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param4" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param5" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param6" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param7" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param8" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="param9" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  kws_mkkod, mkm_mnama, kws_kwkod, kws_knama, jln_jlkod, jln_jnama,
+kws_mkkod mkkod, decode(htl_thprs,'TL','TAHUN LALU','TS','TAHUN SEMASA') thprs,
+        ('T'||lpad(htl_akaun,7,0)||'-'||htl_digit) kodtt,
+        htl_tahun, htl_thprs, htl_trikh, htl_akaun, htl_digit, htl_jlkod,
+       htl_jpkod, htl_statf, byrn_lebihan, tngk_ctaksir, tngk_notise,
+       tngk_denda, tngk_waranf, tngk_nod, bil_ctaksir, bil_notise,
+       bil_denda, bil_waranf, bil_nod, byrn_lebihan_j, tngk_ctaksir_j,
+       tngk_notise_j, tngk_denda_j, tngk_waranf_j, tngk_nod_j,
+       bil_ctaksir_j, bil_notise_j, bil_denda_j, bil_waranf_j,
+       bil_nod_j, byr_tngk_ctaksir, byr_tngk_notise, byr_tngk_denda,
+       byr_tngk_waranf, byr_tngk_nod, byr_bil_ctaksir, byr_bil_notise,
+       byr_bil_denda, byr_bil_waranf, byr_bil_nod, byr_tngk_ctaksir_j,
+       byr_tngk_notise_j, byr_tngk_denda_j, byr_tngk_waranf_j,
+       byr_tngk_nod_j, byr_bil_ctaksir_j, byr_bil_notise_j,
+       byr_bil_denda_j, byr_bil_waranf_j, byr_bil_nod_j,
+       spbt.epbt.get_para_value('spbt',1) mnama,
+      (byr_tngk_ctaksir+byr_tngk_notise+byr_tngk_denda+byr_tngk_waranf+byr_tngk_nod) kutiptk01,
+      (byr_tngk_ctaksir_j+byr_tngk_notise_j+byr_tngk_denda_j+byr_tngk_waranf_j+byr_tngk_nod_j) kutiptk02,
+      (byr_bil_ctaksir+byr_bil_notise+byr_bil_denda+byr_bil_waranf+bil_nod) kutipsm01,
+      (byr_bil_ctaksir_j+byr_bil_notise_j+byr_bil_denda_j+byr_bil_waranf_j+bil_nod_j) kutipsm02,
+      (tngk_ctaksir+tngk_notise+tngk_denda+tngk_waranf+tngk_nod+byrn_lebihan) cs1_biltgkn01,
+      (tngk_ctaksir_j+tngk_notise_j+tngk_denda_j+tngk_waranf_j+tngk_nod_j+byrn_lebihan_j) cs1_bitgkn02,
+      ((byr_tngk_ctaksir+byr_tngk_notise+byr_tngk_denda+byr_tngk_waranf+byr_tngk_nod)+
+      (byr_tngk_ctaksir_j+byr_tngk_notise_j+byr_tngk_denda_j+byr_tngk_waranf_j+byr_tngk_nod_j)) cf1_bakihut02,
+      (bil_ctaksir+bil_notise+bil_denda+bil_waranf+bil_nod) bilsmsa01,
+      (bil_ctaksir_j+bil_notise_j+bil_denda_j+bil_waranf_j+bil_nod_j) bilsmsa02,
+      ((bil_ctaksir+bil_notise+bil_denda+bil_waranf+bil_nod)+
+      (bil_ctaksir_j+bil_notise_j+bil_denda_j+bil_waranf_j+bil_nod_j))-
+      ((byr_bil_ctaksir+byr_bil_notise+byr_bil_denda+byr_bil_waranf+byr_bil_nod)+
+      (byr_bil_ctaksir_j+byr_bil_notise_j+byr_bil_denda_j+byr_bil_waranf_j+byr_bil_nod_j)) cf1_bakihut01,
+      ((tngk_ctaksir+tngk_notise+tngk_denda+tngk_waranf+tngk_nod+byrn_lebihan)+
+      (tngk_ctaksir_j+tngk_notise_j+tngk_denda_j+tngk_waranf_j+tngk_nod_j+byrn_lebihan_j))-
+      ((byr_tngk_ctaksir+byr_tngk_notise+byr_tngk_denda+byr_tngk_waranf+tngk_nod)+
+      (byr_tngk_ctaksir_j+byr_tngk_notise_j+byr_tngk_denda_j+byr_tngk_waranf_j+byr_tngk_nod_j))
+      +
+      ((bil_ctaksir+bil_notise+bil_denda+bil_waranf+bil_nod)+
+      (bil_ctaksir_j+bil_notise_j+bil_denda_j+bil_waranf_j+bil_nod_j))-
+      ((byr_bil_ctaksir+byr_bil_notise+byr_bil_denda+byr_bil_waranf+byr_bil_nod)+
+      (byr_bil_ctaksir_j+byr_bil_notise_j+byr_bil_denda_j+byr_bil_waranf_j+byr_bil_nod_j)) cf1_bakihutng
+from irep.mtkn_httl30, spbt.fjalan, spbt.flkwsn, spbt.fmukim
+where htl_jlkod = jln_jlkod
+and htl_akaun between $P{param1} and $P{param2}
+and htl_jlkod between $P{param3} and $P{param4}
+and ((htl_statf IN ('P','Y','N','D','W') and $P{param5} = 'A')
+or   (htl_statf = 'H' and $P{param5} = 'H')
+or   (htl_statf IN ('P','Y','N','D','W','H') and $P{param5} = 'S'))
+and jln_kwkod = kws_kwkod
+and kws_mkkod = mkm_mkkod
+order by kws_mkkod, kws_kwkod, jln_jlkod, htl_akaun]]>
+	</queryString>
+	<field name="KWS_MKKOD" class="java.math.BigDecimal"/>
+	<field name="MKM_MNAMA" class="java.lang.String"/>
+	<field name="KWS_KWKOD" class="java.math.BigDecimal"/>
+	<field name="KWS_KNAMA" class="java.lang.String"/>
+	<field name="JLN_JLKOD" class="java.math.BigDecimal"/>
+	<field name="JLN_JNAMA" class="java.lang.String"/>
+	<field name="MKKOD" class="java.math.BigDecimal"/>
+	<field name="THPRS" class="java.lang.String"/>
+	<field name="KODTT" class="java.lang.String"/>
+	<field name="HTL_TAHUN" class="java.lang.String"/>
+	<field name="HTL_THPRS" class="java.lang.String"/>
+	<field name="HTL_TRIKH" class="java.sql.Timestamp"/>
+	<field name="HTL_AKAUN" class="java.math.BigDecimal"/>
+	<field name="HTL_DIGIT" class="java.math.BigDecimal"/>
+	<field name="HTL_JLKOD" class="java.math.BigDecimal"/>
+	<field name="HTL_JPKOD" class="java.math.BigDecimal"/>
+	<field name="HTL_STATF" class="java.lang.String"/>
+	<field name="BYRN_LEBIHAN" class="java.math.BigDecimal"/>
+	<field name="TNGK_CTAKSIR" class="java.math.BigDecimal"/>
+	<field name="TNGK_NOTISE" class="java.math.BigDecimal"/>
+	<field name="TNGK_DENDA" class="java.math.BigDecimal"/>
+	<field name="TNGK_WARANF" class="java.math.BigDecimal"/>
+	<field name="TNGK_NOD" class="java.math.BigDecimal"/>
+	<field name="BIL_CTAKSIR" class="java.math.BigDecimal"/>
+	<field name="BIL_NOTISE" class="java.math.BigDecimal"/>
+	<field name="BIL_DENDA" class="java.math.BigDecimal"/>
+	<field name="BIL_WARANF" class="java.math.BigDecimal"/>
+	<field name="BIL_NOD" class="java.math.BigDecimal"/>
+	<field name="BYRN_LEBIHAN_J" class="java.math.BigDecimal"/>
+	<field name="TNGK_CTAKSIR_J" class="java.math.BigDecimal"/>
+	<field name="TNGK_NOTISE_J" class="java.math.BigDecimal"/>
+	<field name="TNGK_DENDA_J" class="java.math.BigDecimal"/>
+	<field name="TNGK_WARANF_J" class="java.math.BigDecimal"/>
+	<field name="TNGK_NOD_J" class="java.math.BigDecimal"/>
+	<field name="BIL_CTAKSIR_J" class="java.math.BigDecimal"/>
+	<field name="BIL_NOTISE_J" class="java.math.BigDecimal"/>
+	<field name="BIL_DENDA_J" class="java.math.BigDecimal"/>
+	<field name="BIL_WARANF_J" class="java.math.BigDecimal"/>
+	<field name="BIL_NOD_J" class="java.math.BigDecimal"/>
+	<field name="BYR_TNGK_CTAKSIR" class="java.math.BigDecimal"/>
+	<field name="BYR_TNGK_NOTISE" class="java.math.BigDecimal"/>
+	<field name="BYR_TNGK_DENDA" class="java.math.BigDecimal"/>
+	<field name="BYR_TNGK_WARANF" class="java.math.BigDecimal"/>
+	<field name="BYR_TNGK_NOD" class="java.math.BigDecimal"/>
+	<field name="BYR_BIL_CTAKSIR" class="java.math.BigDecimal"/>
+	<field name="BYR_BIL_NOTISE" class="java.math.BigDecimal"/>
+	<field name="BYR_BIL_DENDA" class="java.math.BigDecimal"/>
+	<field name="BYR_BIL_WARANF" class="java.math.BigDecimal"/>
+	<field name="BYR_BIL_NOD" class="java.math.BigDecimal"/>
+	<field name="BYR_TNGK_CTAKSIR_J" class="java.math.BigDecimal"/>
+	<field name="BYR_TNGK_NOTISE_J" class="java.math.BigDecimal"/>
+	<field name="BYR_TNGK_DENDA_J" class="java.math.BigDecimal"/>
+	<field name="BYR_TNGK_WARANF_J" class="java.math.BigDecimal"/>
+	<field name="BYR_TNGK_NOD_J" class="java.math.BigDecimal"/>
+	<field name="BYR_BIL_CTAKSIR_J" class="java.math.BigDecimal"/>
+	<field name="BYR_BIL_NOTISE_J" class="java.math.BigDecimal"/>
+	<field name="BYR_BIL_DENDA_J" class="java.math.BigDecimal"/>
+	<field name="BYR_BIL_WARANF_J" class="java.math.BigDecimal"/>
+	<field name="BYR_BIL_NOD_J" class="java.math.BigDecimal"/>
+	<field name="MNAMA" class="java.lang.String"/>
+	<field name="KUTIPTK01" class="java.math.BigDecimal"/>
+	<field name="KUTIPTK02" class="java.math.BigDecimal"/>
+	<field name="KUTIPSM01" class="java.math.BigDecimal"/>
+	<field name="KUTIPSM02" class="java.math.BigDecimal"/>
+	<field name="CS1_BILTGKN01" class="java.math.BigDecimal"/>
+	<field name="CS1_BITGKN02" class="java.math.BigDecimal"/>
+	<field name="CF1_BAKIHUT02" class="java.math.BigDecimal"/>
+	<field name="BILSMSA01" class="java.math.BigDecimal"/>
+	<field name="BILSMSA02" class="java.math.BigDecimal"/>
+	<field name="CF1_BAKIHUT01" class="java.math.BigDecimal"/>
+	<field name="CF1_BAKIHUTNG" class="java.math.BigDecimal"/>
+	<variable name="sum_tngk_ctaksir" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGK_CTAKSIR}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_ctaksir_j" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGK_CTAKSIR_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_denda" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$V{sum_tngk_denda}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_denda_j" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$V{sum_tngk_denda_j}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_notise" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGK_NOTISE}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_notise_j" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGK_NOTISE_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_waranf" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGK_WARANF}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_waranf_j" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGK_WARANF_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_byrn_lebihan" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{BYRN_LEBIHAN}]]></variableExpression>
+	</variable>
+	<variable name="sum_byrn_lebihan_j" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{BYRN_LEBIHAN_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_kutiptk01" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{KUTIPTK01}]]></variableExpression>
+	</variable>
+	<variable name="sum_kutiptk02" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{KUTIPTK02}]]></variableExpression>
+	</variable>
+	<variable name="sum_biltgkn01" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{CS1_BILTGKN01}]]></variableExpression>
+	</variable>
+	<variable name="sum_bitgkn02" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{CS1_BITGKN02}]]></variableExpression>
+	</variable>
+	<variable name="sum_bakihut02" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{CF1_BAKIHUT02}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_ctaksir" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_CTAKSIR}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_ctaksir_j" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_CTAKSIR_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_denda" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_DENDA}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_denda_j" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_DENDA_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_notise" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_NOTISE}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_notise_j" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_NOTISE_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_waranf" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_WARANF}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_waranf_j" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_WARANF_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_kutipsm01" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{KUTIPSM01}]]></variableExpression>
+	</variable>
+	<variable name="sum_kutipsm02" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{KUTIPSM02}]]></variableExpression>
+	</variable>
+	<variable name="sum_bilsmsa01" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{BILSMSA01}]]></variableExpression>
+	</variable>
+	<variable name="sum_bilsmsa02" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{BILSMSA02}]]></variableExpression>
+	</variable>
+	<variable name="sum_bakihut01" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{CF1_BAKIHUT01}]]></variableExpression>
+	</variable>
+	<variable name="sum_bakihutng" class="java.math.BigDecimal" resetType="Group" resetGroup="KWS_MKKOD" calculation="Sum">
+		<variableExpression><![CDATA[$F{CF1_BAKIHUTNG}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_ctaksir_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGK_CTAKSIR}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_ctaksir_j_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGK_CTAKSIR_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_denda_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$V{sum_tngk_denda}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_denda_j_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$V{sum_tngk_denda_j}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_notise_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGK_NOTISE}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_notise_j_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGK_NOTISE_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_waranf_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGK_WARANF}]]></variableExpression>
+	</variable>
+	<variable name="sum_tngk_waranf_j_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TNGK_WARANF_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_byrn_lebihan_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BYRN_LEBIHAN}]]></variableExpression>
+	</variable>
+	<variable name="sum_byrn_lebihan_j_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BYRN_LEBIHAN_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_kutiptk01_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{KUTIPTK01}]]></variableExpression>
+	</variable>
+	<variable name="sum_kutiptk02_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{KUTIPTK02}]]></variableExpression>
+	</variable>
+	<variable name="sum_biltgkn01_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{CS1_BILTGKN01}]]></variableExpression>
+	</variable>
+	<variable name="sum_bitgkn02_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{CS1_BITGKN02}]]></variableExpression>
+	</variable>
+	<variable name="sum_bakihut02_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{CF1_BAKIHUT02}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_ctaksir_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_CTAKSIR}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_ctaksir_j_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_CTAKSIR_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_denda_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_DENDA}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_denda_j_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_DENDA_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_notise_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_NOTISE}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_notise_j_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_NOTISE_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_waranf_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_WARANF}]]></variableExpression>
+	</variable>
+	<variable name="sum_bil_waranf_j_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BIL_WARANF_J}]]></variableExpression>
+	</variable>
+	<variable name="sum_kutipsm01_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{KUTIPSM01}]]></variableExpression>
+	</variable>
+	<variable name="sum_kutipsm02_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{KUTIPSM02}]]></variableExpression>
+	</variable>
+	<variable name="sum_bilsmsa01_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BILSMSA01}]]></variableExpression>
+	</variable>
+	<variable name="sum_bilsmsa02_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BILSMSA02}]]></variableExpression>
+	</variable>
+	<variable name="sum_bakihut01_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{CF1_BAKIHUT01}]]></variableExpression>
+	</variable>
+	<variable name="sum_bakihutng_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{CF1_BAKIHUTNG}]]></variableExpression>
+	</variable>
+	<group name="KWS_MKKOD" isStartNewColumn="true" isStartNewPage="true" isReprintHeaderOnEachPage="true" keepTogether="true">
+		<groupExpression><![CDATA[$F{KWS_MKKOD}+$F{KWS_KWKOD}+$F{JLN_JLKOD}]]></groupExpression>
+		<groupHeader>
+			<band height="66">
+				<rectangle>
+					<reportElement uuid="1488915f-2663-4039-874d-2e5b1b261963" x="-1" y="42" width="804" height="24" forecolor="#FFFFFF" backcolor="#F6F4F4"/>
+				</rectangle>
+				<staticText>
+					<reportElement uuid="029c0849-0325-464b-8da6-e0052c2c3459" x="479" y="43" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Denda]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="273fb295-b79c-4819-88d1-4e94b060f33e" x="434" y="43" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Cukai]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="b557f802-58c8-4289-8864-f183c17cca0b" x="69" y="11" width="15" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="8ac4502d-b128-4ae5-9053-3d2640d31bb7" x="115" y="43" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Tgk. Denda]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="031f290f-1146-4e8a-a701-6572a0768a66" x="389" y="43" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Baki Tgkn]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="936adf1e-2488-4bda-b02b-9ab2506b20c9" x="116" y="22" width="465" height="12"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{JLN_JNAMA}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="e57b654a-c4fb-46a2-86e7-15c2a9895cdf" x="0" y="11" width="70" height="12"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Kod Kawasan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="554b9bec-fad6-4dcc-9c22-9091b915fed9" x="69" y="22" width="15" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="fcabb590-bc44-47a6-81b5-9fca477d8e0d" x="160" y="43" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Tgk. Notis]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="7e17d22e-888e-4047-b55b-d46ad98d9ccf" x="0" y="0" width="70" height="12"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Kod Mukim]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="7347dbe4-460f-4382-97a8-562d2064b899" x="83" y="22" width="34" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{JLN_JLKOD}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="7eb2b7fe-deae-49b7-ad38-fe21458c3777" x="69" y="0" width="15" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="58c58033-188d-42c8-b2ca-8155ccab5e63" x="755" y="43" width="48" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Baki Akhir]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="29673b51-9cb9-4d76-bc7a-e01a31a856c5" x="116" y="0" width="465" height="12"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{MKM_MNAMA}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="6905b838-e19c-45ec-8cda-a0f57e19f8c9" x="708" y="43" width="48" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Baki Semasa]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="f77dc487-419e-4ab2-8628-7986cbdbd0a3" x="340" y="54" width="50" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Jum. Tgkn J]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="d29fed60-6537-4632-b6c2-c649c2ca1c6a" x="0" y="43" width="22" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Bil.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="cc19cda8-9162-494b-99a2-9f04e019d25f" x="21" y="43" width="50" height="12"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[No. Akaun]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="199bf3be-ceb7-46c4-af71-bcdbe100e2bf" x="70" y="43" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Tgk. Cukai]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="fcd34287-aaab-4302-968e-a78b6339622e" x="340" y="43" width="50" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Jum. Tgkn]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="2f6d877f-1665-4305-a59c-bc0407c480ca" x="0" y="22" width="70" height="12"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Kod Jalan]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="852fa83c-737c-4011-95b6-37bde764ea4f" x="116" y="11" width="465" height="12"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{KWS_KNAMA}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="87a6894f-0f71-4bb2-9bed-23bb3274bef9" x="83" y="0" width="34" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{KWS_MKKOD}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="68de75e3-9355-4dac-8872-3947674e48b0" x="205" y="43" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Tgk. Waran]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="e6d8214a-4778-474b-9d57-4aeabdbc3a6a" x="614" y="43" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Byr. Semasa]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="0950cb5c-fadc-46df-8c83-e5896fd6b004" x="250" y="43" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Byr. Lebih]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="5336569a-d5c2-487c-9c1f-853fa73df615" x="659" y="54" width="50" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Jum. Bil J]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="40e4c631-d6cd-4926-8249-45cf30ebe499" x="295" y="43" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Byr. Tgkn]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="35a82df5-46f8-413a-b89d-c174102db2a5" x="524" y="43" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Notis]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="ede9346c-ce98-46bd-912c-be9de691d311" x="659" y="43" width="50" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Jum. Bil]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="da044c84-5b33-4e39-be97-f653180ab848" x="569" y="43" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Waran]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="9c2a5731-c3af-4e4c-94d5-3e506256a4b1" x="83" y="11" width="34" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{KWS_KWKOD}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement uuid="199f6228-452b-4907-9a5f-d56f25af8c88" x="0" y="65" width="802" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement uuid="c6d95e62-820f-4a95-8268-906ffecd3e01" x="160" y="54" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Tgk. Notis J]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="12930254-558f-4975-bbbb-cb6357fa4f0d" x="250" y="54" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Byr. Lebih J]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="acbed5f3-f0d2-44c6-b1f0-7944d7f0f048" x="115" y="54" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Tgk. Denda J]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="738d1ad4-bd6a-424c-b1f6-88f4e25dc949" x="205" y="54" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Tgk. Waran J]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="678f4a4d-b737-454d-a19e-623c71a4ca12" x="295" y="54" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Byr. Tgkn J]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="8e09d1c3-4f4f-4863-9775-081d5b749529" x="70" y="54" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Tgk. Cukai J]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="542091d2-ad46-45ed-9ec8-90c7b902c94e" x="434" y="54" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Cukai J]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="926c6be7-beb8-43c2-8920-fa0d050aec12" x="524" y="54" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Notis J]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="fecc41ab-c5cb-4f80-8110-2263e6969030" x="479" y="54" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Denda J]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="78f50252-cd60-4469-84cf-2fe343bb3040" x="614" y="54" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Byr. Semasa J]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="719ca031-5be0-4809-bf9c-9641e64d794f" x="569" y="54" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Waran J]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="30">
+				<staticText>
+					<reportElement uuid="09e38352-1cb2-49cd-acca-27ca943ce200" x="61" y="5" width="10" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="d90a5601-a46c-4b81-a084-821d40e5a918" isPrintRepeatedValues="false" x="115" y="16" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_tngk_denda_j} == null ? '0.00':$V{sum_tngk_denda_j}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="ba85f7ac-ea7c-476f-80c2-c75f201fe93a" isPrintRepeatedValues="false" x="205" y="16" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_tngk_waranf_j}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="995251f8-4d89-440f-9447-9a0957ab9b55" isPrintRepeatedValues="false" x="70" y="5" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_tngk_ctaksir}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="956b8504-acf6-468f-b4c7-077979eaeea2" isPrintRepeatedValues="false" x="205" y="5" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_tngk_waranf}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="bee01f16-4dd5-45cb-850c-2ca611694a2a" x="0" y="5" width="63" height="12"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[Jumlah]]></text>
+				</staticText>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="5326708a-b3ef-4caa-b24c-33912d3ffe75" isPrintRepeatedValues="false" x="250" y="5" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_byrn_lebihan}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="18ae5e68-2844-4e6b-a18a-a471760c94d5" isPrintRepeatedValues="false" x="160" y="16" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_tngk_notise_j}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="b1aee8a1-fa87-4a9e-9561-405102f1fc2c" isPrintRepeatedValues="false" x="115" y="5" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_tngk_denda} == null ? '0.00':$V{sum_tngk_denda}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="6d9b9616-8318-4d11-a795-9c5c941e4fe8" isPrintRepeatedValues="false" x="70" y="16" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_tngk_ctaksir_j}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="b292ef29-e94c-4c6d-9b21-b2c6e4ad5ff2" isPrintRepeatedValues="false" x="250" y="16" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_byrn_lebihan_j}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="0ab968c0-eae5-4f9c-8b7b-80d1dc1bf11b" isPrintRepeatedValues="false" x="160" y="5" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_tngk_notise}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="2d787a42-ce73-427e-836a-9849354259f0" x="340" y="5" width="50" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_biltgkn01}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="c165fbd0-0757-4264-b51e-295e68df5564" x="434" y="16" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bil_ctaksir_j}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="27259ff0-6cc9-450b-90e5-367580b694de" x="479" y="16" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bil_denda_j}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="68fe5e7e-87a9-410d-8a2b-d0aafa118242" x="389" y="5" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bakihut02}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="bfa0e6ea-f7b9-4fbf-815d-7bbb4d686253" x="524" y="5" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bil_notise}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="44ce4b70-be90-48d1-b3c0-8da4ac04f33f" x="340" y="16" width="50" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bitgkn02}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="7af7e9df-a8f3-40f3-9bca-a1c063d27901" x="295" y="5" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_kutiptk01}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="7fa47efb-8472-4c35-a8ab-4c28d6e0b1b8" x="295" y="16" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_kutiptk02}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="2601390f-643a-4b68-bff3-2d8b0f7538e7" x="524" y="16" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bil_notise_j}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="3a131c07-8627-44d4-8f75-701bec53334a" x="434" y="5" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bil_ctaksir}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="9f4d664f-b2fa-4dc5-ab2d-261407b61375" x="479" y="5" width="46" height="12" printWhenGroupChanges="KWS_MKKOD"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bil_denda}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement uuid="12dcbea9-df0b-4c3c-8abe-4e41d9482b5c" x="0" y="3" width="802" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="ac0ff464-100e-4289-b162-44697e4c63b5" x="614" y="5" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_kutipsm01}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="28a2a8fc-f12d-41fd-9f72-94c3ed0235f6" x="569" y="5" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bil_waranf}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="f27122c2-cf2e-4261-aaa5-9ddce74eabf8" x="659" y="16" width="50" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bilsmsa02}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="efa40b38-f5d8-417e-9ecb-b1c099478ac6" x="755" y="5" width="48" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bakihutng}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="675065b5-b779-4a8d-9ba6-a72a43571468" x="614" y="16" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_kutipsm02}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="1690601f-2a9d-415c-a420-e32069069d14" x="708" y="5" width="48" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bakihut01}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="a9bfad23-e97a-45de-b5aa-e769b68ccdc6" x="569" y="16" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bil_waranf_j}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="151a9ccd-58aa-487f-98dc-55439d3558cb" x="659" y="5" width="50" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_bilsmsa01}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement uuid="f96c92d8-2964-4acd-b0df-2f87ee8bfb74" x="0" y="29" width="802" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="50">
+			<textField>
+				<reportElement uuid="70df1d7a-7926-4302-884c-607bcf094fd4" x="682" y="14" width="62" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["M/Surat : "+$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="e945d234-f78a-439f-8724-d4876e3a1875" x="744" y="14" width="40" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1b08c87d-c75b-4ee1-af87-8ec7ed0f64fe" x="682" y="0" width="46" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tarikh :]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="13ccd991-669e-4170-810f-2e8f58269aa6" x="718" y="0" width="79" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ec5821fa-4b77-4fca-afd8-140e7bded43c" x="2" y="0" width="59" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HTTL30]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="ad3dc339-cc3b-49fd-9f9d-b2052cef6852" x="0" y="14" width="801" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["LAPORAN PENYESUAIAN HUTANG DAN BAYARAN"+$F{THPRS}+" BERTARIKH "+$P{param8}+ " HINGGA "+$P{param9}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3ad04557-ef56-4134-bd14-2ab9a34df1c6" x="0" y="0" width="801" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MNAMA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<frame>
+				<reportElement uuid="c2c72082-b1e8-4d39-8542-54b0f977b778" style="Row" mode="Transparent" x="0" y="0" width="802" height="23"/>
+				<textField>
+					<reportElement uuid="9ac87bcf-427d-4f78-b0ef-5a15a46e7d30" x="21" y="0" width="50" height="12"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{KODTT}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="129688ee-adce-4f6e-bd1b-889d6b5a369e" x="70" y="0" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TNGK_CTAKSIR}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="80f0b731-0d7f-4d4f-8949-9358b039425a" x="115" y="0" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TNGK_DENDA}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="e9cc4fb9-c665-442f-8bbd-d0937c83727f" x="160" y="0" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TNGK_NOTISE}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="a0b0ee05-e969-452e-b4b7-38e0d380f2a5" x="205" y="0" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TNGK_WARANF}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="f45ce8dc-b349-4a27-a36f-2269669d059a" x="250" y="0" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BYRN_LEBIHAN}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="8984b11b-5685-4949-ae49-79d44ab84cfc" x="250" y="11" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BYRN_LEBIHAN_J}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="0a18b87f-903d-423a-b060-234852463538" x="70" y="11" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TNGK_CTAKSIR_J}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="9b9a2061-20ee-4da8-aed2-8e4641ecf297" x="115" y="11" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TNGK_DENDA_J}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="f8598196-9073-450a-9704-f6d7c62a3066" x="160" y="11" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TNGK_NOTISE_J}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="e707ec77-631f-4a5c-92bc-34fc9902cc4f" x="205" y="11" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TNGK_WARANF_J}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="d300b069-23a1-4029-b686-4ec0a40a80b8" x="295" y="0" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{KUTIPTK01}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="7071f2c3-71a2-44b1-978e-1ec171903b80" x="295" y="11" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{KUTIPTK02}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="3f54c32b-bc91-43ae-aeaa-f8ce3957c633" x="434" y="0" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BIL_CTAKSIR}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="d9fe9807-1c70-488d-8cbf-7e7b290477a5" x="524" y="0" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BIL_NOTISE}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="cfbbc6e8-7732-40a4-97df-f63373194339" x="479" y="0" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BIL_DENDA}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="c6387a33-38e1-43ef-8668-90b2622f6b41" x="569" y="0" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BIL_WARANF}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="99dc6fb2-bde8-4d4e-8b07-9fdf6d54dbe6" x="434" y="11" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BIL_CTAKSIR_J}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="b4ad363a-9d65-4958-ac84-6c949ef387eb" x="524" y="11" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BIL_NOTISE_J}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="0fc2fa05-dcbc-4f77-824e-db3a38000ddc" x="479" y="11" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BIL_DENDA_J}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="33b21f8a-48be-4095-aba9-461fa93c5351" x="569" y="11" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BIL_WARANF_J}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="34c67a3f-12cf-4ea2-9e12-65acbdc373f7" x="614" y="11" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{KUTIPSM02}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="78ecd400-e3fc-42e1-bbef-18baac0a860d" x="614" y="0" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{KUTIPSM01}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="6d3bffad-7e3e-4580-b001-aaf55e0478b7" x="0" y="0" width="22" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{KWS_MKKOD_COUNT}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="0cf6d37b-86a1-4049-9b3d-462383f76840" x="340" y="0" width="50" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CS1_BILTGKN01}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="b67a9e3a-04c3-47da-ac2b-04d2cbf1a0e4" x="340" y="11" width="50" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CS1_BITGKN02}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement uuid="eafe968b-ca6d-41c6-9560-47f31406b8d5" x="389" y="0" width="46" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CF1_BAKIHUT02}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="df7c6307-2809-45f5-95bd-20fb74e87d24" x="659" y="11" width="50" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BILSMSA02}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="65db859d-8c7e-4e13-a4a6-2d0d080acd4b" x="659" y="0" width="50" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BILSMSA01}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="e6ba8378-c964-4984-a750-1463401071cd" x="754" y="0" width="48" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CF1_BAKIHUTNG}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;(###0.00)">
+					<reportElement uuid="5914ac36-5d9f-4ec8-af6d-b8d9ca942f43" x="708" y="0" width="48" height="12"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CF1_BAKIHUT01}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<summary>
+		<band height="90" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="d2d50aba-370b-4492-bbd8-b69a2810b844" x="-1" y="2" width="804" height="24" forecolor="#FFFFFF" backcolor="#F6F4F4"/>
+			</rectangle>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="26cbd54d-0cca-4be5-b2f8-a047ec92a44c" x="205" y="13" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_tngk_waranf_j_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="0a92e57d-24e7-4967-b5a1-60d9eed50039" x="115" y="13" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_tngk_denda_1} == null ? '0.00':$V{sum_tngk_denda_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="e585a68a-5c1e-42e3-8173-00f79a191c42" x="250" y="2" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_byrn_lebihan_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="c09638d2-1346-4805-8b64-1014b9f28317" x="160" y="13" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_tngk_notise_j_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="0bb7dee1-c285-4328-84d3-4b37eff59995" x="70" y="13" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_tngk_ctaksir_j_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="504347be-cba5-4aff-9755-2eb0ef11aa0f" x="160" y="2" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_tngk_notise_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="44ea71c4-bcbe-4211-b053-9f155b9686a7" x="340" y="2" width="50" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_biltgkn01_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ff786bb8-d8fa-4a19-bb70-9d2b00b8eecd" x="61" y="2" width="10" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="64fbc39b-8aa7-4b03-908b-9f32690ee0f4" isPrintRepeatedValues="false" x="70" y="2" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_tngk_ctaksir_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="48e5850c-7055-4798-a2a9-05fbf6bdc956" x="205" y="2" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_tngk_waranf_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="910875aa-c116-490c-bea1-5a6d33e21c15" x="389" y="2" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bakihut02_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e2a5c509-4d6d-430a-a6ba-ee89707c81b5" x="0" y="2" width="63" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[Jumlah Keseluruhan]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="ba1e3aa3-b0e8-40db-bd00-2a220b3f2f4f" x="295" y="2" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_kutiptk01_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="7d841f09-04ed-4107-bf53-fe73b6046cdd" x="340" y="13" width="50" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bitgkn02_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="d03e0185-2750-4392-b1ec-5f0c4f392d90" x="295" y="13" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_kutiptk02_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="ad3f921b-e51b-4044-987f-73e95b33cb37" x="115" y="2" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_tngk_denda_1} == null ? '0.00':$V{sum_tngk_denda_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement uuid="169267c0-7970-46e1-864c-8057bb693388" x="250" y="13" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_byrn_lebihan_j_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="a03c8d63-918d-4b92-b28e-948b2f369371" x="614" y="2" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_kutipsm01_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="58c145b8-e4dd-4e22-93bc-277dbdf0a766" x="524" y="2" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bil_notise_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="71e6e9a8-5def-42e7-979e-3feef33755d7" x="434" y="2" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bil_ctaksir_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="66727c9e-f3da-48e8-ab23-ce3f1dba85c3" x="524" y="13" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bil_notise_j_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="f22874a9-e251-4182-9c61-297168105311" x="479" y="2" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bil_denda_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="7da13617-ad26-48d8-afae-a7cc54b1f0f5" x="434" y="13" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bil_ctaksir_j_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="e04e5497-c8f1-4ab0-9f1e-63a62796510b" x="479" y="13" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bil_denda_j_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="ae093ec0-873f-4fe3-8f8d-17542f198c3a" x="569" y="2" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bil_waranf_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="075b72df-9525-4a47-ab38-62506b76d6b0" x="659" y="13" width="50" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bilsmsa02_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="55694c8e-24d5-465f-a459-46fffd8594c0" x="755" y="2" width="48" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bakihutng_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="699d5d95-5a12-430a-872c-3b4c730aa6f9" x="614" y="13" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_kutipsm02_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="821895f6-4a7e-4139-8036-867ea82a818f" x="708" y="2" width="48" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bakihut01_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="5838b020-19fd-4e40-9320-86f6155c9a00" x="569" y="13" width="46" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bil_waranf_j_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement uuid="77a16aae-ddf1-42a1-b2ad-47dd4ed70476" x="659" y="2" width="50" height="12"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum_bilsmsa01_1}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="a138fb69-1e54-42cd-accd-6863c5834e96" x="0" y="27" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="0b655fc5-a7b8-4525-90e3-4504a6a85b3d" x="0" y="29" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

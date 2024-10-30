@@ -1,0 +1,57 @@
+@import "colors";
+@import "extends";
+.panel-footer.revenue-foot {
+	background-color: $color_mystic_approx;
+	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+	border-radius: 0 0 4px 4px;
+	border: none;
+	padding: 0;
+	width: 100%;
+	display: inline-block;
+	ul {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		display: inline-flex;
+		li {
+			float: left;
+			width: 33.33%;
+			a {
+				display: inline-block;
+				width: 100%;
+				padding: 14px 15px;
+				text-align: center;
+				border-right: 1px solid $color_iron_approx;
+				color: $color_boulder_approx;
+				&:hover {
+					background: $white;
+					position: relative;
+					i {
+						@extend %extend_10;
+					}
+				}
+				i {
+					color: $color_ghost_approx;
+					display: block;
+					font-size: 16px;
+				}
+			}
+			&.first a:hover {
+				//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+				border-radius: 0 0 0 4px;
+			}
+			&.last a:hover {
+				//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+				border-radius: 0 0 4px 0;
+				border-right: none;
+			}
+			&.active a {
+				background: $white;
+				position: relative;
+				i {
+					@extend %extend_10;
+				}
+			}
+		}
+	}
+}
