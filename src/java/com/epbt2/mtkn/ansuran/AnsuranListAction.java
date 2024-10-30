@@ -20,7 +20,7 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  *
- * @author otasoft01
+ * @author tiena
  */
 public class AnsuranListAction extends ActionSupport implements UserAware, ModelDriven<User> {
 
